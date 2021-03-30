@@ -2,13 +2,13 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import BaseButton from '../Buttons/Buttons';
 
-function GetStarted() {
+function GetStarted({placeholder}) {
     return (
       <>
         <InputGroup className="mb-3">
             <FormControl
-                placeholder="Email Address"
-                aria-label="Email Address"
+                placeholder={placeholder}
+                aria-label={placeholder}
                 aria-describedby="basic-addon2"
                 style={{height:'60px'}}
             />
