@@ -1,6 +1,7 @@
 import BaseButton from "../components/Buttons/Buttons";
 import GetStarted from "../components/Input/GetStarted";
 import Footer from "../components/Footer/Footer";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
@@ -18,7 +19,9 @@ function Home() {
                     </div>
 
                     <div className="col-sm-3 col-md-2 offset-sm-7 offset-md-8">
-                        <BaseButton color="btn btn-danger">Sign In</BaseButton>
+                        <NavLink to="/login">
+                            <BaseButton color="btn btn-danger">Sign In</BaseButton>
+                        </NavLink>
                     </div>
                 </div>
             </div>
