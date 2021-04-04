@@ -1,7 +1,6 @@
 import BaseButton from "../components/Buttons/Buttons";
 import GetStarted from "../components/Input/GetStarted";
 import { NavLink } from "react-router-dom";
-
 function Home() {
   return (
       <>

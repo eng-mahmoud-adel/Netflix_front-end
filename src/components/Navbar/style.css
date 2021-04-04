@@ -1,0 +1,46 @@
+.navbar {
+  background-color: #0e0e0e;
+}
+.logo {
+  width: 110px;
+  height: 30px;
+  margin: 15px 60px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2000px-Netflix_2015_logo.svg.png");
+  background-size: cover;
+}
+.navLink {
+  color: #b2b2b2 !important;
+}
+.navLink:hover {
+  color: #cd3a36 !important;
+  font-weight: 500 !important;
+}
+.formSearch {
+  background-color: #0e0e0e !important;
+  border-color: #b2b2b2 !important;
+}
+.navbar-light .navbar-toggler-icon {
+  background-color: #282727;
+  border-radius: 5px;
+}
+
+/* .navbar-light .navbar-nav .nav-link {
+  color: #b2b2b2;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #cd3a36;
+}
+.navbar-expand-lg .navbar-collapse {
+  background-color: #0e0e0e;
+}
+.logo {
+  width: 110px;
+  height: 30px;
+  margin: 15px 60px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2000px-Netflix_2015_logo.svg.png");
+  background-size: cover;
+}
+.form-inline .form-control {
+  background-color: #0e0e0e;
+  border-color: #b2b2b2;
+} */
