@@ -1,10 +1,10 @@
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import LoginForm from '../components/Forms/LoginForm';
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { login } from '../store/actions/auth';
 
-
-function Login() {
+function Login({login}) {
     return (
         <>
             {/* background image */}
@@ -26,10 +26,21 @@ function Login() {
             </Row>
 
             <div className="col-9 col-md-7 col-lg-5 col-xl-4 mx-auto">
-                <LoginForm />
+                <LoginForm login={login} />
             </div>
         </>
     );
 }
+
+// const mapStateToProps = (state) => ({
+    
+// });
+
+const mapDispatchToProps = (dispatch) => ({
+    login: (request) => {
+        dispatch(login(request))
+    }
+});
   
-export default Login;
+// export default Login;
+export default connect(null, mapDispatchToProps)(Login);

@@ -4,22 +4,40 @@ import Row from 'react-bootstrap/Row';
 import BaseButton from '../Buttons/Buttons';
 import Input from '../Input/Input';
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
-function LoginForm() {
+function LoginForm({login}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login({email, password});
+  }
     return (
       <Row className="justify-content-md-center">
         <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <h1 className="text-white mb-4"><b>Sign In</b></h1>
               <Form.Group controlId="formGroupEmail">
-                  <Input type="email" name="email" placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="email" name="email" value={email} onChange={onChangeEmail} placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <Form.Group controlId="formGroupPassword">
-                  <Input type="password" name="password" placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="password" name="password" value={password} onChange={onChangePassword} placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
-              <BaseButton color="btn-danger">Sign In</BaseButton>
+              <BaseButton type="submit" color="btn-danger">Sign In</BaseButton>
 
               <Row className="mx-0" style={{alignItems: 'center'}}>
                 <Form.Group controlId="formBasicCheckbox" className="mt-3">

@@ -1,9 +1,9 @@
 import Form from 'react-bootstrap/Form';
 
-function Input({type, placeholder, style}) {
+function Input({type, name, value, onChange, placeholder, style}) {
     return (
       <>
-        <Form.Control type={type} placeholder={placeholder} style={style} />
+        <Form.Control type={type} name={name} value={value} onChange={onChange} placeholder={placeholder} style={style} />
       </>
     );
 }
