@@ -1,0 +1,60 @@
+
+.banner{
+    background-image: url('https://occ-0-2705-2706.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABdA_VSbBsxhKK0u7rFcgQB1P2hpzhmi5XyqYgh7h7LaGlke37FNQHPrOYilNaYywLWvA_9W5HCcSzDyCWc1rLiBlAyo7.webp?r=a73');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:80% 20%;
+}
+.banner_info{
+    padding: 30vh;
+    color:white;
+}
+.banner_title {
+	font-size: 45px;
+	margin-bottom: 30px;
+    font-weight: 900;
+}
+.banner_description{
+    margin-top: 30px;
+    font-weight: 600;
+	font-size: 19px;
+
+}
+.banner_button{
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-right: 1rem;
+    background-color: rgba(51,51,51,.5);
+    padding: 10px 30px;
+}
+.banner_fade{
+	background: linear-gradient(
+		180deg,
+		transparent,
+		rgba(37, 37, 37, 0.61),
+		rgb(0, 0, 0)
+	);
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.banner_top_fade{
+	background: linear-gradient(
+		360deg,
+		transparent,
+		rgba(255, 255, 255, 0),
+		rgb(0, 0, 0)
+	);
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
