@@ -3,6 +3,7 @@ import LoginForm from '../components/Forms/LoginForm';
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from '../store/actions/auth';
+import Footer from '../components/Footer/Footer';
 
 function Login({login}) {
     return (
@@ -25,9 +26,15 @@ function Login({login}) {
                 </div>
             </Row>
 
-            <div className="col-9 col-md-7 col-lg-5 col-xl-4 mx-auto">
-                <LoginForm login={login} />
+            <div className="col-9 col-md-7 col-lg-5 col-xl-4 mx-auto" style={{height:"815px"}}>
+                <LoginForm />
             </div>
+            <footer>
+                <Footer color="rgba(0,0,0,.75)" >
+                    {["FAQ","Help Center","Terms of Use",
+                        "Privacy","Cookie Preferences","Corporate Information"]}
+                </Footer>
+            </footer>
         </>
     );
 }
