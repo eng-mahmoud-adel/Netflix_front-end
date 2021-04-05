@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./test.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from './Navbar'
+import "./Banner.css";
+
 function Banner() {
   return (
     <>
     <div className="banner container-fluid">
-    <div className="banner_top_fade"></div>
       <div class="row">
         <div className="banner_info offset-lg-1 offset-md-1 offset-sm-1 col-lg-5 col-md-7 col-sm-9 col-9 offset-1">
           <h1 className="banner_title">Money Heist</h1>

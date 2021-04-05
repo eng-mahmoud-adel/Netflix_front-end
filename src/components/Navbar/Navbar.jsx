@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Form, Nav, FormControl } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navbarr() {
   const [background, setbackground] =useState('')
@@ -15,7 +14,6 @@ function Navbarr() {
     return () => window.removeEventListener("scroll",backgroundHandler);
   },[])
     return (
-      <>
         <Navbar style={{backgroundColor:background}}className="navbar" expand="lg">
           <Navbar.Brand href="#home">
 
@@ -54,7 +52,6 @@ function Navbarr() {
             </Form>
           </Navbar.Collapse>
         </Navbar>
-      </>
     );
   }
 
