@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar/Navbar'
 
 function Movies() {
     return (
-        <>
+        <div>
             <Navbar/>
             <Banner/>
-        </>
+        </div>
     );
 }
   

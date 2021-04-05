@@ -5,8 +5,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position:80% 20%;
-	position: absolute;
-	top:0px;
+	position: relative;
+	top:0;
 }
 .banner_info{
     padding: 30vh;
