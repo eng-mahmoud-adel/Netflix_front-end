@@ -12,7 +12,7 @@ function App() {
         <Route exact path="/" component={Home}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/registration" component={Registration}></Route>
-        <Route exact path="/Movies" component={Movies}></Route>
+        <Route path="/movies" component={Movies}></Route>
       </Switch>
     </BrowserRouter>
   );
