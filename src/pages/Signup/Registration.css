@@ -1,0 +1,32 @@
+.registration {
+    overflow: hidden;
+}
+
+.registration .logo svg {
+    width: 170px;
+}
+
+.registration .logo {
+    fill:#e50914;
+}
+
+.registration .settings {
+    width: 350px;
+    margin-top: 150px;
+}
+
+.registration .settings h1 {
+    font-size: 23px;
+}
+
+.registration .button {
+    height: 70px;
+}
+
+.registration .button button {
+    font-size: 24px;
+}
+
+.registration footer {
+    margin-top: 150px;
+}

@@ -1,0 +1,56 @@
+.login {
+    overflow: hidden;
+}
+
+.login .logo svg {
+    width: 170px;
+}
+
+.background {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -999 ;
+    filter: brightness(0.5);
+}
+
+.background img {
+    height: 1106px;
+
+}
+
+.login .logo {
+    fill:#e50914;
+}
+
+/* for mobile $ tablets */
+@media (max-width: 767px) {
+    .login .logo svg {
+        width: 120px;
+    }
+
+    .login .login-form {
+        height: 823px;
+    }
+}
+
+/* for small screen */
+@media (min-width: 768px) and (max-width: 991px) {
+    .login .login-form {
+        height: 838px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .login .login-form {
+        height: 832px;
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .login .login-form {
+        height: 824px;
+    }
+}

@@ -1,0 +1,91 @@
+.home-section .logo {
+    fill: #e50914;
+}
+
+.home-section .background {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 719px;
+    z-index: -999;
+    filter: brightness(0.5);
+}
+
+.home-section .get-started {
+    color: white;
+    margin-top: 180px;
+    height: 465px;
+}
+
+/* for mobile $ tablets */
+@media (max-width: 767px) {
+    .home-section svg {
+        width: 120px;
+    }
+
+    .home-section .get-started h1 {
+        font-size: 35px;
+    }
+
+    .home-section .get-started h2 {
+        font-size: 20px;
+    }
+
+    .home-section .get-started h3 {
+        font-size: 20px;
+    }
+}
+
+/* for small screen */
+@media (min-width: 768px) and (max-width: 991px) {
+    .home-section svg {
+        width: 130px;
+    }
+
+    .home-section .get-started h1 {
+        font-size: 50px;
+    }
+
+    .home-section .get-started h2 {
+        font-size: 25px;
+    }
+
+    .home-section .get-started h3 {
+        font-size: 17px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .home-section svg {
+        width: 140px;
+    }
+
+    .home-section .get-started h1 {
+        font-size: 50px;
+    }
+
+    .home-section .get-started h2 {
+        font-size: 30px;
+    }
+
+    .home-section .get-started h3 {
+        font-size: 18px;
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .home-section svg {
+        width: 140px;
+    }
+
+    .home-section .get-started h1 {
+        font-size: 60px;
+    }
+
+    .home-section .get-started h3 {
+        font-size: 22px;
+    }
+}
