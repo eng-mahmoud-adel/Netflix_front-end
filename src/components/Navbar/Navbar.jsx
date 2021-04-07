@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { Navbar, Form, Nav, FormControl } from "react-bootstrap";
+import { Navbar, Form, Nav, FormControl ,NavDropdown} from "react-bootstrap";
 
 function Navbarr() {
   const [background, setbackground] =useState('')
@@ -51,8 +51,19 @@ function Navbarr() {
               />
             </Form>
           </Navbar.Collapse>
+          <NavDropdown alignRight text-danger className=' dropdown' title={
+                <img id='nav-thumbnail'src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png'/>
+
+            } id="dropdown-basic">
+        <NavDropdown.Item href="#action/3.1">Profiles</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+      </NavDropdown>
         </Navbar>
     );
   }
 
 export default Navbarr;
+
+
