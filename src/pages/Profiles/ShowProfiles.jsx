@@ -1,8 +1,8 @@
 import React from 'react';
-import ShowProfilesForm from './../../components/Forms/ShowProfilesForm';
+import ShowProfilesForm from '../../components/Forms/ShowProfilesForm';
 
 
-const CreateProfile = () => {
+const ShowProfiles = () => {
     return ( 
         <>
         <div style={{backgroundColor:"black"}}>
@@ -14,4 +14,4 @@ const CreateProfile = () => {
      );
 }
  
-export default CreateProfile;
+export default ShowProfiles;

@@ -2,7 +2,7 @@ import React from 'react';
 import AddProfileForm from './../../components/Forms/AddProfileForm';
 
 
-const CreateProfile = () => {
+const AddProfile = () => {
     return ( 
         <>
         <div style={{backgroundColor:"black"}}>
@@ -14,4 +14,4 @@ const CreateProfile = () => {
      );
 }
  
-export default CreateProfile;
+export default AddProfile;
