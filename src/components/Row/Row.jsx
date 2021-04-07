@@ -27,7 +27,7 @@ function Row({title,fetchUrl,isLargeRow}){
 console.log(series)
     
     return(
-        <div className="row">
+        <div className="row d-block mx-0 p-5">
             <h2>{title}</h2>
             
             <div className="row__posters">

@@ -8,8 +8,7 @@ function Dashboard(){
        <div style={{background:"black",paddingBottom:"5%"}}>
         <div className="Home">
             
-            <Row title="NETFLIX ORIRGINALS" fetchUrl={requests.fetchNetflixOriginals}
-            isLargeRow />
+            <Row title="NETFLIX ORIRGINALS" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
             <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
             <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
             <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
