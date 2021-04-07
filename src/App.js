@@ -6,6 +6,7 @@ import Registration from './pages/Signup/Registration';
 import AddProfile from './pages/Profiles/AddProfile';
 import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
+import Movies from './pages/Movies'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/addprofile" component={AddProfile}></Route>
         <Route path="/editprofile" component={EditProfile}></Route>
         <Route path="/showprofiles" component={ShowProfiles}></Route>
-
+        <Route path="/movies" component={Movies}></Route>
       </Switch>
     </BrowserRouter>
   );

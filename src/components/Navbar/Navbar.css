@@ -1,0 +1,32 @@
+
+.navbar {
+    /* background-color: #0e0e0e; */
+    position: fixed !important;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+    padding:10px 0px;
+  }
+
+  .navLink {
+    color: #e5e5e5 !important;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+  }
+  .navLink:hover {
+    color: #838383 !important;
+    font-weight: 500 !important;
+  }
+  .formSearch {
+    background-color: #0e0e0e !important;
+    border-color: #b2b2b2 !important;
+  }
+  .navbar-light .navbar-toggler-icon {
+    background-color: #282727;
+    border-radius: 5px;
+  }
+  .links{
+    margin-left:30px;
+  }
