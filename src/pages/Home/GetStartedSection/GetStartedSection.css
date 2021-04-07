@@ -1,8 +1,12 @@
-.home-section .logo {
+.getstarted-section {
+    border-bottom: 8px solid #222;
+}
+
+.getstarted-section .logo {
     fill: #e50914;
 }
 
-.home-section .background {
+.getstarted-section .background {
     position: absolute;
     top:0;
     left:0;
@@ -12,7 +16,7 @@
     filter: brightness(0.5);
 }
 
-.home-section .get-started {
+.getstarted-section .get-started {
     color: white;
     margin-top: 180px;
     height: 465px;
@@ -20,72 +24,72 @@
 
 /* for mobile $ tablets */
 @media (max-width: 767px) {
-    .home-section svg {
+    .getstarted-section svg {
         width: 120px;
     }
 
-    .home-section .get-started h1 {
+    .getstarted-section .get-started h1 {
         font-size: 35px;
     }
 
-    .home-section .get-started h2 {
+    .getstarted-section .get-started h2 {
         font-size: 20px;
     }
 
-    .home-section .get-started h3 {
+    .getstarted-section .get-started h3 {
         font-size: 20px;
     }
 }
 
 /* for small screen */
 @media (min-width: 768px) and (max-width: 991px) {
-    .home-section svg {
+    .getstarted-section svg {
         width: 130px;
     }
 
-    .home-section .get-started h1 {
+    .getstarted-section .get-started h1 {
         font-size: 50px;
     }
 
-    .home-section .get-started h2 {
+    .getstarted-section .get-started h2 {
         font-size: 25px;
     }
 
-    .home-section .get-started h3 {
+    .getstarted-section .get-started h3 {
         font-size: 17px;
     }
 }
 
 /* for medium screen */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .home-section svg {
+    .getstarted-section svg {
         width: 140px;
     }
 
-    .home-section .get-started h1 {
+    .getstarted-section .get-started h1 {
         font-size: 50px;
     }
 
-    .home-section .get-started h2 {
+    .getstarted-section .get-started h2 {
         font-size: 30px;
     }
 
-    .home-section .get-started h3 {
+    .getstarted-section .get-started h3 {
         font-size: 18px;
     }
 }
 
 /* for large screen */
 @media (min-width: 1200px) {
-    .home-section svg {
+    .getstarted-section svg {
         width: 140px;
     }
 
-    .home-section .get-started h1 {
+    .getstarted-section .get-started h1 {
         font-size: 60px;
     }
 
-    .home-section .get-started h3 {
+    .getstarted-section .get-started h3 {
         font-size: 22px;
     }
 }

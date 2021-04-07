@@ -4,6 +4,7 @@ import { login } from '../../store/actions/auth';
 import Footer from '../../components/Footer/Footer';
 import './Login.css';
 import OuterNavbar from '../../components/OuterNavbar/OuterNavbar';
+import Interface from '../../images/interface.jpg';
 
 function Login({login}) {
     return (
@@ -11,7 +12,7 @@ function Login({login}) {
             <div className="login">
                 {/* background image */}
                 <div className="background">
-                    <img className="w-100" src="https://assets.nflxext.com/ffe/siteui/vlv3/92bb3a0b-7e91-40a0-b27b-f2c3ac9ef6e4/5e82ecf0-5873-4e02-8619-2307b8ed65a1/EG-en-20210322-popsignuptwoweeks-perspective_alpha_website_small.jpg" alt="netflix image"/>
+                    <img className="w-100" src={Interface} alt="netflix image"/>
                 </div>
                 {/* background image */}
 

@@ -1,0 +1,75 @@
+.enjoy-section {
+    background-color: black;
+    border-bottom: 8px solid #222;
+}
+
+/* first section */
+
+/* for small screen */
+@media (min-width: 768px) and (max-width: 991px) {
+    .enjoy-section .first-section {
+        padding: 0;
+    }
+    
+    .enjoy-section .first-section h1 {
+        font-size: 50px;
+    }
+    
+    .enjoy-section .first-section p {
+        font-size: 26px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .enjoy-section .first-section {
+        padding: 95px 18px;
+    }
+    
+    .enjoy-section .first-section h1 {
+        font-size: 50px;
+    }
+    
+    .enjoy-section .first-section p {
+        font-size: 26px;
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .enjoy-section .first-section {
+        padding: 125px 90px;
+    }
+    
+    .enjoy-section .first-section h1 {
+        font-size: 50px;
+    }
+    
+    .enjoy-section .first-section p {
+        font-size: 26px;
+    }
+}
+
+/* first section */
+
+/* second section */
+.enjoy-section .second-section {
+    position: relative;
+    z-index: 10;
+}
+
+.enjoy-section .second-section img {
+    transform: scaleX(0.9);
+}
+
+.enjoy-section .second-section .video {
+    position: absolute;
+    top: 95px;
+    left: 118px;
+    width: 402px;
+    height: 248px;
+    z-index: -1;
+}
+
+
+/* second section */
