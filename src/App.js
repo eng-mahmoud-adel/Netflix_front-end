@@ -3,6 +3,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Registration from './pages/Signup/Registration';
+import AddProfile from './pages/Profiles/AddProfile';
+import EditProfile from './pages/Profiles/EditProfile';
+import ShowProfiles from './pages/Profiles/ShowProfiles';
 import Movies from './pages/Movies'
 
 function App() {
@@ -12,6 +15,9 @@ function App() {
         <Route exact path="/" component={Home}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/registration" component={Registration}></Route>
+        <Route path="/addprofile" component={AddProfile}></Route>
+        <Route path="/editprofile" component={EditProfile}></Route>
+        <Route path="/showprofiles" component={ShowProfiles}></Route>
         <Route path="/movies" component={Movies}></Route>
       </Switch>
     </BrowserRouter>
