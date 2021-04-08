@@ -1,4 +1,4 @@
-.enjoy-section {
+.watch-section {
     background-color: black;
     border-bottom: 8px solid #222;
 }
@@ -7,45 +7,45 @@
 
 /* for small screen */
 @media (min-width: 768px) and (max-width: 991px) {
-    .enjoy-section .first-section {
+    .watch-section .first-section {
         padding: 0;
     }
     
-    .enjoy-section .first-section h1 {
+    .watch-section .first-section h1 {
         font-size: 50px;
     }
     
-    .enjoy-section .first-section p {
+    .watch-section .first-section p {
         font-size: 26px;
     }
 }
 
 /* for medium screen */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .enjoy-section .first-section {
-        padding: 95px 18px;
+    .watch-section .first-section {
+        padding: 95px 13px;
     }
     
-    .enjoy-section .first-section h1 {
+    .watch-section .first-section h1 {
         font-size: 50px;
     }
     
-    .enjoy-section .first-section p {
+    .watch-section .first-section p {
         font-size: 26px;
     }
 }
 
 /* for large screen */
 @media (min-width: 1200px) {
-    .enjoy-section .first-section {
+    .watch-section .first-section {
         padding: 125px 90px;
     }
     
-    .enjoy-section .first-section h1 {
+    .watch-section .first-section h1 {
         font-size: 50px;
     }
     
-    .enjoy-section .first-section p {
+    .watch-section .first-section p {
         font-size: 26px;
     }
 }
@@ -53,53 +53,53 @@
 /* first section */
 
 /* second section */
-.enjoy-section .second-section {
+.watch-section .second-section {
     position: relative;
     z-index: 10;
 }
 
-.enjoy-section .second-section img {
+.watch-section .second-section img {
     transform: scaleX(0.9);
 }
 
-.enjoy-section .second-section .video {
+.watch-section .second-section .video {
     position: absolute;
     z-index: -1;
 }
 
 /* for mobile $ tablets */
 @media (max-width: 767px) {
-    .enjoy-section .second-section .video {
-        top: 7.459vh;
-        left: 16.638vw;
-        width: 49.428vw;
+    .watch-section .second-section .video {
+        top: 3.459vh;
+        left: 20.638vw;
+        width: 42.428vw;
     }
 }
 
 /* for small screen */
 @media (min-width: 768px) and (max-width: 991px) {
-    .enjoy-section .second-section .video {
-        top: 10.459vh;
-        left: 16.638vw;
-        width: 57.428vw;
+    .watch-section .second-section .video {
+        top: 5.459vh;
+        left: 21.638vw;
+        width: 48.428vw;
     }
 }
 
 /* for medium screen */
 @media (min-width: 992px) and (max-width: 1199px) {
-    .enjoy-section .second-section .video {
-        top: 5.459vh;
-        left: 9.2vw;
-        width: 28.428vw;
+    .watch-section .second-section .video {
+        top: 2.459vh;
+        left: 11.2vw;
+        width: 23.428vw;
     }
 }
 
 /* for large screen */
 @media (min-width: 1200px) {
-    .enjoy-section .second-section .video {
-        top: 14.459vh;
-        left: 8.8vw;
-        width: 29.428vw;
+    .watch-section .second-section .video {
+        top: 8.459vh;
+        left: 10.8vw;
+        width: 25.428vw;
     }
 }
 

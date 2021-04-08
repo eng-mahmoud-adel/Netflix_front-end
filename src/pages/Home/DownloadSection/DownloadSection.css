@@ -1,0 +1,87 @@
+.download-section {
+    background-color: black;
+    border-bottom: 8px solid #222;
+}
+
+/* first section */
+@media (max-width: 767px) {
+    .download-section .first-section {
+        top: -25px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .download-section .first-section {
+        top: -50px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .download-section .first-section {
+        top: 70px;
+        transform: scale(1.2);
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .download-section .first-section {
+        top: -35px;
+        left: -41px;
+        transform: scale(0.8);
+    }
+}
+/* first section */
+
+/* second section */
+@media (max-width: 767px) {
+    .download-section .second-section {
+        padding: 50px 20px 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .download-section .second-section {
+        padding: 50px 20px 0;
+    }
+    
+    .download-section .second-section h1 {
+        font-size: 50px;
+    }
+    
+    .download-section .second-section p {
+        font-size: 26px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .download-section .second-section {
+        padding: 125px 70px 125px 0;
+    }
+    
+    .download-section .second-section h1 {
+        font-size: 50px;
+    }
+    
+    .download-section .second-section p {
+        font-size: 26px;
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .download-section .second-section {
+        padding: 125px 144px 125px 0;
+    }
+    
+    .download-section .second-section h1 {
+        font-size: 50px;
+    }
+    
+    .download-section .second-section p {
+        font-size: 26px;
+    }
+}
+/* second section */
