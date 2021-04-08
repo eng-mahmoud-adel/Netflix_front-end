@@ -1,0 +1,21 @@
+.plans .logo svg {
+    width: 170px;
+}
+
+.plans .logo {
+    fill:#e50914;
+}
+
+.plans .settings {
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+
+.plans .settings p {
+    font-size: 18px;
+    text-align: left;
+}
+
+.plans .settings button {
+    font-size: 24px;
+}

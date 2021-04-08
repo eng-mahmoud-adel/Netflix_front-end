@@ -1,12 +1,13 @@
-import BaseButton from "../../components/Buttons/Buttons";
-import Footer from "../../components/Footer/Footer";
-import OuterNavbar from "../../components/OuterNavbar/OuterNavbar";
+import { NavLink } from "react-router-dom";
+import BaseButton from "../../../components/Buttons/Buttons";
+import Footer from "../../../components/Footer/Footer";
+import OuterNavbar from "../../../components/OuterNavbar/OuterNavbar";
 import "./Registration.css";
 
 function Registration() {
     return(
         <div className="registration">
-            <div className="mx-5 mt-3">
+            <div className="mx-3 mx-md-5 mt-3">
                 <OuterNavbar logo_login="true" to="/" />
             </div>
 
@@ -24,7 +25,9 @@ function Registration() {
             </div>
 
             <div className="col-9 col-sm-7 col-md-5 col-lg-4 offset-1 offset-sm-0 mx-sm-auto ml-5 ml-sm-0 button">
-                <BaseButton color="btn-danger">Next</BaseButton>
+                <NavLink to="regform">
+                    <BaseButton color="btn-danger" style={{height: '100%'}}>Next</BaseButton>
+                </NavLink>
             </div>
 
             <footer>

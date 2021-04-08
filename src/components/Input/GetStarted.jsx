@@ -18,7 +18,7 @@ function GetStarted({placeholder}) {
           
             <InputGroup.Append style={{width:'217px'}}>
               <NavLink to="/registration" style={{width: '100%'}}>
-                <BaseButton color="btn-danger" style={{borderTopLeftRadius: '0', borderBottomLeftRadius: '0'}} right_icon="fas fa-chevron-right">Get Started</BaseButton>
+                <BaseButton color="btn-danger" style={{borderTopLeftRadius: '0', borderBottomLeftRadius: '0', height: '100%'}} right_icon="fas fa-chevron-right">Get Started</BaseButton>
               </NavLink>
             </InputGroup.Append>
             
