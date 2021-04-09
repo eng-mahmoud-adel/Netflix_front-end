@@ -3,7 +3,6 @@ import axios from './axios'
 import './Row.css'
 import Carousel from 'react-elastic-carousel';
 
-const base_url="https://image.tmdb.org/t/p/original/"
 const breakPoints=[
     {width:1, itemsToShow:3},
     {width:500, itemsToShow:4},
@@ -19,7 +18,7 @@ function Row({title,fetchUrl,isLargeRow}){
 
        async function fetchData(){
             const request=await axios.get(fetchUrl);
-            setSeries(request.data.results)
+            setSeries(request.data)
             return request;
        } 
        fetchData();
@@ -36,8 +35,7 @@ console.log(series)
                 <img
                     key={serie.id}
                     className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
-                    src={`${base_url}${
-                        isLargeRow ? serie.poster_path : serie.backdrop_path}`} 
+                    src={serie.img} 
                     alt={serie.name}
                     />
                 ))}
