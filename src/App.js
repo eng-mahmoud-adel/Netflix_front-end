@@ -11,6 +11,7 @@ import AddProfile from './pages/Profiles/AddProfile';
 import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
 import Movies from './pages/Movies'
+import Player from './pages/DisplayVideo'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/editprofile" component={EditProfile}></Route>
         <Route path="/showprofiles" component={ShowProfiles}></Route>
         <Route path="/movies" component={Movies}></Route>
+        <Route path="/player/:id" component={Player}></Route>
         <Redirect to="/" ></Redirect>
       </Switch>
     </BrowserRouter>

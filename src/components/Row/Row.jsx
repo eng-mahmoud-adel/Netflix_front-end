@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from './axios'
 import './Row.css'
 import Carousel from 'react-elastic-carousel';
+import { Link } from 'react-router-dom';
 
 const breakPoints=[
     {width:1, itemsToShow:3},
@@ -32,12 +33,14 @@ console.log(series)
             <div className="row__posters">
             <Carousel breakPoints= {breakPoints}>
                 {series.map( serie =>(
+                    <i key={serie.id}>
+                    <Link to={`/player/${serie.id}`}>
                 <img
-                    key={serie.id}
                     className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
                     src={serie.img} 
                     alt={serie.name}
                     />
+                     </Link></i>
                 ))}
                 </Carousel>
             </div>
