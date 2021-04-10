@@ -1,0 +1,75 @@
+.plans .logo svg {
+    width: 170px;
+}
+
+.plans .logo {
+    fill:#e50914;
+}
+
+.plans .settings .plan-type {
+    background-color: #f36b71;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.plans .settings .plan-list .plan-type.active {
+    background-color: red;
+}
+
+.choice {
+    color: red;
+}
+
+.plans .settings .button button {
+    font-size: 20px;
+    height: 50px;
+    margin-bottom: 150px;
+}
+
+.plans .settings .instructions p {
+    font-size: 14px;
+}
+
+/* for mobile $ tablets */
+@media (max-width: 767px) {
+    .plans .settings .plan-list {
+        justify-content: flex-end;
+    }
+
+    .plans .settings .plan-list .plan-type {
+        background-color: #f36b71;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .plans .settings .first-row {
+        width: 570px;
+    }
+}
+
+/* for small screen */
+@media (min-width: 768px) and (max-width: 991px) {
+    .plans .settings .first-row {
+        width: 195px;
+    }
+}
+
+/* for medium screen */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .plans .settings .first-row {
+        width: 410px;
+    }
+}
+
+/* for large screen */
+@media (min-width: 1200px) {
+    .plans .settings .first-row {
+        width: 570px;
+    }
+}

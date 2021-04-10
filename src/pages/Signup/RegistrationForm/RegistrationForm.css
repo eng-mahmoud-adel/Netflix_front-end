@@ -1,0 +1,15 @@
+.regform .logo svg {
+    width: 170px;
+}
+
+.regform .logo {
+    fill:#e50914;
+}
+
+.regform .settings {
+    padding-bottom: 150px;
+}
+
+.regform .settings button {
+    font-size: 24px;
+}
