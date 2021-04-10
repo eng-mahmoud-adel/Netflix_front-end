@@ -6,7 +6,7 @@ export const UpdateProfile = 'UpdateProfile';
 export const DeleteProfile = 'DeleteProfile';
 
 // const token = localStorage.getItem('access_token');
-const token = 'cd196b8e6991fc2e624db955b8588b57e92bfdb4';
+const token = '86ec5de217db2fed75282bb3709ddd3ac2bf9759';
 // const profileId =localStorage.getItem('profile_id');
 
 export const getprofiles = () => async(dispatch) =>{
@@ -31,7 +31,7 @@ export const getprofiles = () => async(dispatch) =>{
 
 
 export const addprofile = (request) => async(dispatch) =>{
-    
+    console.log(request)
     await axios.post(`http://127.0.0.1:8000/api/accounts/create_profile`,request, {
         headers: {
           'Authorization': `Token ${token}` 

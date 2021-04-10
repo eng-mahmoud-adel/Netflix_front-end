@@ -8,8 +8,24 @@ import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
 
 
-function AddProfileForm(){
+function AddProfileForm({addprofile}){
+    const [name, setName] = useState('');
+    const [isKid, setIsKid] = useState('');
     const [imgSrc, setImgSrc] = useState('');
+
+    const onNameChange = (e) => {
+        if (e.target.value) {
+            const name = e.target.value;
+            setName(name);
+        }
+    }
+
+    const onIsKidChange = (e) => {
+        if (e.target.checked) {
+            const isKid = e.target.checked;
+            setIsKid(isKid);
+        }
+    }
 
     const onImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
@@ -21,10 +37,16 @@ function AddProfileForm(){
         console.log("clicked");
     }
      
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log({name, isKid, imgSrc});
+        addprofile({name, isKid, imgSrc});
+      }
+
     return ( 
         <Row className="">
             <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
-                <Form className="col-9">
+                <Form className="col-9"  onSubmit={handleSubmit}>
                     <h1>Add Profile</h1>
                     <p className="text-muted">Add a profile for another person watching Netflix.</p>
                     <hr className="bg-white"/>
@@ -36,9 +58,10 @@ function AddProfileForm(){
                             <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||defaultPic} />
                         </Form.Group>
                         <Form.Group className="col-offset-2 col-lg col-sm-9">
-                            <Input type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
+                            <Input onChange={onNameChange} type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
                         </Form.Group>
                         <Form.Check 
+                            onChange={onIsKidChange}
                             className="col-lg col-sm-2 ml-3"
                             type='checkbox'
                             label="Kid?"

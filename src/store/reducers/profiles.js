@@ -4,6 +4,7 @@ import Profile from "../../model/Profile";
 
 const initialState = {
     profile: {},
+    message:""
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -16,7 +17,7 @@ const profileReducer = (state = initialState, action) => {
         case AddProfile:
             return {
                 ...state,
-
+                message:action.payload
             };
         case UpdateProfile:
             return {
