@@ -22,9 +22,7 @@ export default class Player extends Component {
     render() {
         return (
             <div>
-                <header>
                     <VideoPlayer api={`api/movies/${this.state.videoId}`} />
-                </header>
             </div>
         )
     }
