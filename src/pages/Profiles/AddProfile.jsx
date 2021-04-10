@@ -3,7 +3,7 @@ import AddProfileForm from './../../components/Forms/AddProfileForm';
 import { connect } from "react-redux";
 import { addprofile } from '../../store/actions/profiles';
 
-const AddProfile = () => {
+const AddProfile = ({addprofile}) => {
     return ( 
         <>
         <div style={{backgroundColor:"black"}}>

@@ -31,7 +31,7 @@ export const getprofiles = () => async(dispatch) =>{
 
 
 export const addprofile = (request) => async(dispatch) =>{
-    console.log(request)
+    console.log(request);
     await axios.post(`http://127.0.0.1:8000/api/accounts/create_profile`,request, {
         headers: {
           'Authorization': `Token ${token}` 

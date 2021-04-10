@@ -3,16 +3,20 @@ import OuterNavbar from "../../../components/OuterNavbar/OuterNavbar";
 import './Payment.css';
 import { useState } from 'react';
 import StripeCheckout from "react-stripe-checkout";
+import { connect } from "react-redux";
 
-function Payment() {
 
+function Payment(props) {
+    console.log(props.plans);
     const [plan] = useState({
         name: "Basic Plan",
         price: 120,
     });
 
     const handleToken = (token) => {
-       console.log(token.id);
+       if(token.id){
+           
+       }
     }
 
     return(
@@ -50,4 +54,11 @@ function Payment() {
     )
 }
 
-export default Payment;
+function mapStateToProps(state){
+    console.log(state);
+    return {
+        plans:state,
+    }
+};
+  
+export default connect(mapStateToProps)(Payment);

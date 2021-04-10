@@ -39,9 +39,9 @@ function AddProfileForm({addprofile}){
      
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({name, isKid, imgSrc});
+        // console.log({name, isKid, imgSrc});
         addprofile({name, isKid, imgSrc});
-      }
+    }
 
     return ( 
         <Row className="">

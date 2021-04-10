@@ -17,7 +17,7 @@ const profileReducer = (state = initialState, action) => {
         case AddProfile:
             return {
                 ...state,
-                message:action.payload
+                // message:action.payload
             };
         case UpdateProfile:
             return {
