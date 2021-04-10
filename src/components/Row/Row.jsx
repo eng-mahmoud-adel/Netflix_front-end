@@ -11,7 +11,7 @@ const breakPoints=[
     {width:1200, itemsToShow:6},
 ]
 
-function Row({title,fetchUrl,isLargeRow}){
+function  Row({title,fetchUrl,isLargeRow}){
     const [series,setSeries]=useState([]);
 
 
@@ -34,7 +34,7 @@ console.log(series)
             <Carousel breakPoints= {breakPoints}>
                 {series.map( serie =>(
                     <i key={serie.id}>
-                    <Link to={`/player/${serie.id}`}>
+                    <Link to={serie.director?`/player/${serie.id}` :`/series/${serie.id}`}> 
                 <img
                     className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
                     src={serie.img} 

@@ -12,7 +12,8 @@ import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
 import Movies from './pages/Movies'
 import Player from './pages/DisplayVideo'
-
+import Series from './pages/SeriesPage'
+import seriesPlayer from './pages/seriesPlayer'
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +30,10 @@ function App() {
         <Route path="/showprofiles" component={ShowProfiles}></Route>
         <Route path="/movies" component={Movies}></Route>
         <Route path="/player/:id" component={Player}></Route>
+        <Route path="/series/:id" component={Series}></Route>
+        <Route path="/shows/:id" component={seriesPlayer}></Route>
+
+
         <Redirect to="/" ></Redirect>
       </Switch>
     </BrowserRouter>
