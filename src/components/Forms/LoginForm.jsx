@@ -5,6 +5,7 @@ import BaseButton from '../Buttons/Buttons';
 import Input from '../Input/Input';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { GoogleLogin } from 'react-google-login';
 
 function LoginForm({login}) {
   const [email, setEmail] = useState('');
@@ -23,6 +24,12 @@ function LoginForm({login}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     login({email, password});
+  }
+
+
+  const responseGoogle = (response) => {
+    const {name, email, imageUrl} = response.profileObj;
+    return {name, email, imageUrl};
   }
     return (
       <Row className="justify-content-md-center">
@@ -48,15 +55,19 @@ function LoginForm({login}) {
               </Row>
 
               <div>
-                <div className="d-inline-block mr-3" style={{width: '20px', height: '20px'}}>
-                  <img src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png" alt="facebook image" className="w-100" />
+                <div>
+                  <GoogleLogin
+                    clientId="263908953022-4tdu5pighgll2juksrb0296o66tiugvg.apps.googleusercontent.com"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                  />
                 </div>
-                <small style={{color: '#b3b3b3'}}>Login with Facebook</small>
               </div>
 
               <div className="mt-3">
                 <span style={{color: '#b3b3b3'}}>New to Netflix? </span>
-                <NavLink to="#" className="text-white">Sign up now</NavLink>
+                <NavLink to="/regform" className="text-white">Sign up now</NavLink>
               </div>
 
               <div className="mt-3">
