@@ -7,11 +7,13 @@ import RegistrationForm from './pages/Signup/RegistrationForm/RegistrationForm';
 import Signup from './pages/Signup/Signup/Signup';
 import Plans from './pages/Signup/Plans/Plans';
 import Payment from './pages/Signup/Payment/Payment';
+import Plans from './pages/Signup/Plans/Plans';
 import AddProfile from './pages/Profiles/AddProfile';
 import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
 import Movies from './pages/Movies'
 import Player from './pages/DisplayVideo'
+import Notfound from './components/NotFoundPage/404'
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
         <Route path="/movies" component={Movies}></Route>
         <Route path="/player/:id" component={Player}></Route>
         <Redirect to="/" ></Redirect>
+        <Route component={Notfound}></Route>
       </Switch>
     </BrowserRouter>
   );
