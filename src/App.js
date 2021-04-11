@@ -7,7 +7,6 @@ import RegistrationForm from './pages/Signup/RegistrationForm/RegistrationForm';
 import Signup from './pages/Signup/Signup/Signup';
 import Plans from './pages/Signup/Plans/Plans';
 import Payment from './pages/Signup/Payment/Payment';
-import Plans from './pages/Signup/Plans/Plans';
 import AddProfile from './pages/Profiles/AddProfile';
 import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
