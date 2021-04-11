@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
     const [series,setSeries]=useState([]);
     const [episodes,setEpisodes] =useState();
-
+    const [filteredEpisodes,setFilteredEpisodes]=useState([]);
     let params = useParams({});
 
     useEffect(()=>{
@@ -21,26 +21,25 @@ import { Link } from 'react-router-dom';
             let sortedEp=epRequest.data.sort((a,b)=>a.seasons-b.seasons)
             let sortedSeason=sortedEp.sort((a,b)=>a.episode_number-b.episode_number)
             setEpisodes(sortedSeason)
+            setFilteredEpisodes(sortedSeason)
             return request;
        } 
        fetchData();
        
     },[])
-    let filteredEpisodes;
     const handleFilter =(season)=>{
-        filteredEpisodes = episodes.filter(elem=>elem.seasons==season)
-        console.log(filteredEpisodes)
-        setEpisodes(filteredEpisodes)
+        let newEpisodes = episodes.filter(elem=>elem.seasons==season)
+        setFilteredEpisodes(newEpisodes)
     }
     return ( 
         <div>
             <div className="series-info">
                 <p>  {series&&series.name} </p>
                 <DropdownButton id="dropdown-basic-button" title="Seasons">
-                    {Array(2).fill(0).map( (elem,index) => <Dropdown.Item onClick={()=>handleFilter(index+1)} > Season {index+1} </Dropdown.Item>)}
+                    {Array(series.seasons).fill(0).map( (elem,index) => <Dropdown.Item onClick={()=>handleFilter(index+1)} > Season {index+1} </Dropdown.Item>)}
                 </DropdownButton>
             <div>
-            {episodes && episodes.map(elem=> 
+            {filteredEpisodes && filteredEpisodes.map(elem=> 
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
 
