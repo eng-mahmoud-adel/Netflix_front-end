@@ -37,7 +37,7 @@ function App() {
 
         <Route path="/player/:id" component={Player}></Route>
         <Route path="/series/:id" component={Series}></Route>
-        <Route path="/shows/:id" component={seriesPlayer}></Route>
+        <Route path="/show/player/:id" component={seriesPlayer}></Route>
 
 
         <Redirect to="/" ></Redirect>

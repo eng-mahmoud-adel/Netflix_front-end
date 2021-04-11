@@ -49,7 +49,7 @@ import { Link } from 'react-router-dom';
                     <Card.Text>
                     {elem.description}
                     </Card.Text>
-                <Link to={`/shows/${series.id}` }> 
+                <Link to={`/show/player/${series.id}` }> 
 
                     <Card.Link >Card Link</Card.Link>
                     </Link>
