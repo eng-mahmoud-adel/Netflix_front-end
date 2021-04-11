@@ -16,7 +16,8 @@ function Navbarr() {
   },[])
     return (
         <Navbar style={{backgroundColor:background}}className="navbar" expand="lg">
-          <Navbar.Brand href="#home">
+          <Navbar.Brand >
+        <Link to='/Browse'>
 
             <div className="ml-5" >
                 <div  style={{fill:'#e50914'}}>
@@ -27,6 +28,8 @@ function Navbarr() {
                     </svg>
                 </div>
             </div>
+          </Link>
+
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
