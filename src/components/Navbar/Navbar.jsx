@@ -17,7 +17,7 @@ function Navbarr() {
         <Navbar style={{backgroundColor:background}}className="navbar" expand="lg">
           <Navbar.Brand href="#home">
 
-            <div class="ml-5" >
+            <div className="ml-5" >
                 <div  style={{fill:'#e50914'}}>
                     <svg width="100px" viewBox="0 0 111 30" focusable="false">
                         <g>
@@ -51,7 +51,7 @@ function Navbarr() {
               />
             </Form>
           </Navbar.Collapse>
-          <NavDropdown alignRight text-danger className=' dropdown' title={
+          <NavDropdown alignRight  className=' dropdown' title={
                 <img id='nav-thumbnail'src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png'/>
 
             } id="dropdown-basic">
