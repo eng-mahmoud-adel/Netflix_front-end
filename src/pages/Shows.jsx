@@ -1,15 +1,15 @@
 import Banner from '../components/Banner/Banner'
 import Navbar from '../components/Navbar/Navbar'
-import MoviesDashboard from '../components/Dashboard/MoviesDashboard';
+import SeriesDashboard from '../components/Dashboard/SeriesDashboard';
 
-function Movies() {
+function Shows() {
     return (
         <div>
             <Navbar/>
             <Banner/>
-			<MoviesDashboard/>
+			<SeriesDashboard/>
         </div>
     );
 }
   
-export default Movies;
+export default Shows;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Form, Nav, FormControl ,NavDropdown} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 function Navbarr() {
   const [background, setbackground] =useState('')
@@ -30,18 +31,20 @@ function Navbarr() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto links">
-              <Nav.Link className="navLink" href="#home">
+            
+            <Link className="navLink" to={`/Browse`} style={{ textDecoration: 'none' }}> 
                 Home
-              </Nav.Link>
-              <Nav.Link className="navLink" href="#">
+              </Link> 
+
+              <Link  className="navLink"  to={`/Shows`} style={{ textDecoration: 'none'}}> 
                 TV Shows
-              </Nav.Link>
-              <Nav.Link className="navLink" href="#">
+              </Link>
+
+              <Link className="navLink" to={`/Movies`} style={{ textDecoration: 'none' }}> 
                 Movies
-              </Nav.Link>
-              <Nav.Link className="navLink" href="#">
-                My List
-              </Nav.Link>
+            </Link>
+
+
             </Nav>
             <Form inline>
               <FormControl
