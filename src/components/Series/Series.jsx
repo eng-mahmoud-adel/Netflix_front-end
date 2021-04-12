@@ -34,7 +34,7 @@ const Series = () => {
     setFilteredEpisodes(newEpisodes);
   };
   return (
-    <div>
+    <div className="series-container">
       <div className="series-info">
         <p className="title"> {series && series.name} </p>
         <p className="description">{series && series.description}</p>
