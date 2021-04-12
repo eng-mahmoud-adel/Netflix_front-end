@@ -1,9 +1,9 @@
-import {GetProfiles, AddProfile, UpdateProfile, DeleteProfile} from '../actions/profiles'
+import {GetProfiles, GetProfile, AddProfile, UpdateProfile, DeleteProfile} from '../actions/profiles'
 import Profile from "../../model/Profile";
 
 
 const initialState = {
-    profiles:{},
+    profiles:[],
     profile: {},
     message:"",
     
@@ -11,8 +11,14 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GetProfile:
+            console.log(state.profile);
+            return {
+                ...state,
+                profile:action.payload,
+            };
         case GetProfiles:
-            console.log(state.profiles);
+            // console.log(state.profiles);
             return {
                 ...state,
                 profiles:action.payload,
