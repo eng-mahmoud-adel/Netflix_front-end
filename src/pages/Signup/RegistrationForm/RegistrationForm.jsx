@@ -1,9 +1,11 @@
 import SignupForm from "../../../components/Forms/SignupForm";
 import OuterNavbar from "../../../components/OuterNavbar/OuterNavbar";
 import Footer from "../../../components/Footer/Footer";
+import { connect } from "react-redux";
+import { registerUser } from '../../../store/actions/auth';
 import './RegistrationForm.css';
 
-function RegistrationForm() {
+function RegistrationForm({userEmail, registerUser, error}) {
     return(
         <div className="regform">
             <div className="mx-3 mx-md-5 mt-3">
@@ -17,7 +19,7 @@ function RegistrationForm() {
                 <h3><b>Create a password to start your membership.</b></h3>
                 <p className="mb-0">Just a few more steps and you're done!</p>
                 <p>We hate paperwork, too.</p>
-                <SignupForm />
+                <SignupForm registerUser={registerUser} userEmail={userEmail} error={error} />
             </section>
 
             <footer>
@@ -29,4 +31,15 @@ function RegistrationForm() {
     )
 }
 
-export default RegistrationForm;
+const mapStateToProps = (state) => ({
+    userEmail: state.authUser.user.email,
+    error: state.authUser.error
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    registerUser: (request) => {
+        dispatch(registerUser(request))
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);

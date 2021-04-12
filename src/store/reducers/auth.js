@@ -1,22 +1,40 @@
-import {LOGIN, LOGOUT, SIGNUP} from '../actions/auth'
+import {LOGIN, SIGNUP, LOGOUT, EMAIL_CHANGED, BAD_REQUEST_400} from '../actions/auth'
 // import User from "../../model/User";
 
 const initialState = {
     // user: null,
     isLoggedIn: false,
-    accessToken: localStorage.getItem('access_token')
+    accessToken: null,
+    user: {
+        email: '',
+    },
+    userCreated: {
+        msg: '',
+        created: false
+    },
+    error: null
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SIGNUP:
         case LOGIN:
             return {
                 ...state,
                 // user: action.payload,
                 // accessToken: action.accessToken
                 isLoggedIn: true,
-                accessToken: action.accessToken
+                accessToken: action.payload
+            };
+
+        case SIGNUP:
+            return {
+                ...state,
+                userCreated: {
+                    msg: action.payload,
+                    created: true
+                },
+                error: null
+                // accessToken: action.accessToken
             };
         
         case LOGOUT:
@@ -25,6 +43,21 @@ const authReducer = (state = initialState, action) => {
                 // user: null,
                 isLoggedIn: false,
                 accessToken: null,
+            };
+
+        case EMAIL_CHANGED:
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    email: action.payload
+                }
+            };
+
+        case BAD_REQUEST_400:
+            return {
+                ...state,
+                error: action.payload
             };
 
         default:
