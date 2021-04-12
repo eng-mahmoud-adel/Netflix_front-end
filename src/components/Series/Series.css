@@ -1,4 +1,60 @@
-.series-info{
-    position: relative;
-    top:100px
+body {
+  background-color: #000 !important;
+}
+.series-info {
+  position: relative;
+  top: 100px;
+}
+.title {
+  margin-left: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.description {
+  margin-left: 50px;
+  color: #fff;
+  font-size: 20px;
+  width: 500px;
+}
+.seasons {
+  margin-left: 50px;
+  color: rgb(212, 212, 212);
+  font-size: 15px;
+}
+#dropdown-basic-button {
+  margin-left: 50px;
+}
+.allCard {
+  /* background-color: royalblue; */
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  position: relative;
+  justify-content: stretch;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  margin-left: 18px;
+  height: 300px;
+  margin-left: 10px;
+}
+.dropdown-menu {
+  background-color: #000 !important;
+  color: aliceblue;
+}
+.dropdown-item {
+  color: #fff !important;
+}
+.img {
+  transition: transform 450ms;
+  cursor: pointer;
+}
+.img:hover {
+  transform: scale(1.09);
+}
+card-title h5 {
+  color: #fff;
+}
+card-title {
+  color: #fff;
 }
