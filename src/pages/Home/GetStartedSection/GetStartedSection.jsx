@@ -22,7 +22,7 @@ function GetStartedSection() {
                 <h1><b>Unlimited movies, TV shows, and more.</b></h1>
                 <h2 className="mb-4">Watch anywhere. Cancel anytime.</h2>
                 <h3 className="mb-3">Ready to watch? Enter your email to create or restart your membership.</h3>
-                <GetStarted placeholder="Email Address"></GetStarted>
+                <GetStarted placeholder="Email Address" required="required"></GetStarted>
             </div>
         </section>
     )

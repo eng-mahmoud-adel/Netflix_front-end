@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Registration from './pages/Signup/Registration/Registration';
@@ -30,7 +30,7 @@ function App() {
         <Route path="/showprofiles" component={ShowProfiles}></Route>
         <Route path="/movies" component={Movies}></Route>
         <Route path="/player/:id" component={Player}></Route>
-        <Redirect to="/" ></Redirect>
+        {/* <Redirect to="/" ></Redirect> */}
         <Route component={Notfound}></Route>
       </Switch>
     </BrowserRouter>

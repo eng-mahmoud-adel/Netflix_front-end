@@ -6,7 +6,7 @@ export const UpdateProfile = 'UpdateProfile';
 export const DeleteProfile = 'DeleteProfile';
 
 // const token = localStorage.getItem('access_token');
-const token = '86ec5de217db2fed75282bb3709ddd3ac2bf9759';
+const token = 'c60607d04ca28bdb04f8a738968d1f5d59ba9dab';
 // const profileId =localStorage.getItem('profile_id');
 
 export const getprofiles = () => async(dispatch) =>{

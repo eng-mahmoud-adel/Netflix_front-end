@@ -1,14 +1,21 @@
 import Banner from '../components/Banner/Banner'
 import Navbar from '../components/Navbar/Navbar'
 import Dashboard from '../components/Dashboard/Dashbord';
+import { Redirect } from 'react-router-dom';
 
 function Movies() {
     return (
-        <div>
-            <Navbar/>
-            <Banner/>
-			<Dashboard/>
-        </div>
+        <>
+            {localStorage.token? 
+                <div>
+                    <Navbar/>
+                    <Banner/>
+                    <Dashboard/>
+                </div>
+                : 
+                <Redirect to="/login"/>
+            }
+        </>
     );
 }
   

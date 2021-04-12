@@ -26,7 +26,6 @@ function LoginForm({login}) {
     login({email, password});
   }
 
-
   const responseGoogle = (response) => {
     const {name, email, imageUrl} = response.profileObj;
     return {name, email, imageUrl};
@@ -37,11 +36,11 @@ function LoginForm({login}) {
           <Form onSubmit={handleSubmit}>
             <h1 className="text-white mb-4"><b>Sign In</b></h1>
               <Form.Group controlId="formGroupEmail">
-                  <Input type="email" name="email" value={email} onChange={onChangeEmail} placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="email" name="email" value={email} onChange={onChangeEmail} required="required" placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <Form.Group controlId="formGroupPassword">
-                  <Input type="password" name="password" value={password} onChange={onChangePassword} placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="password" name="password" value={password} onChange={onChangePassword} required="required" placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <BaseButton type="submit" color="btn-danger">Sign In</BaseButton>
@@ -67,7 +66,7 @@ function LoginForm({login}) {
 
               <div className="mt-3">
                 <span style={{color: '#b3b3b3'}}>New to Netflix? </span>
-                <NavLink to="/regform" className="text-white">Sign up now</NavLink>
+                <NavLink to="/" className="text-white">Sign up now</NavLink>
               </div>
 
               <div className="mt-3">

@@ -14,7 +14,7 @@ function Registration() {
             <hr />
 
             <div className="text-left text-sm-center mx-auto settings">
-                <div className="icons">
+                <div className="icons mb-4">
                     <i className="fas fa-laptop fa-3x mr-4" style={{color: 'red'}}></i>
                     <i className="fas fa-desktop fa-5x mr-4" style={{color: 'red'}}></i>
                     <i className="fas fa-tablet-alt fa-3x mr-4" style={{color: 'red'}}></i>
