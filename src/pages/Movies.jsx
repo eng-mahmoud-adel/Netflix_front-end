@@ -1,6 +1,8 @@
 import Banner from '../components/Banner/Banner'
 import Navbar from '../components/Navbar/Navbar'
-import Dashboard from '../components/Dashboard/Dashbord';
+import MoviesDashboard from '../components/Dashboard/MoviesDashboard';
+
+
 import { Redirect } from 'react-router-dom';
 
 function Movies() {
@@ -10,7 +12,7 @@ function Movies() {
                 <div>
                     <Navbar/>
                     <Banner/>
-                    <Dashboard/>
+                    <MoviesDashboard/>
                 </div>
                 : 
                 <Redirect to="/login"/>

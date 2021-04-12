@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Form, Nav, FormControl ,NavDropdown} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import { NavLink, useHistory, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from '../../store/actions/auth';
@@ -19,6 +20,7 @@ function Navbarr({logoutUser}) {
     return () => window.removeEventListener("scroll",backgroundHandler);
   },[])
 
+
   const handleLogout = () => {
     logoutUser();
     history.push('/');
@@ -27,7 +29,7 @@ function Navbarr({logoutUser}) {
   return (
     <Navbar style={{backgroundColor:background}}className="navbar" expand="lg">
 
-      <NavLink to="/">
+      <NavLink to="/browse">
         <Navbar.Brand>
           <div className="ml-5" >
             <div  style={{fill:'#e50914'}}>
@@ -41,11 +43,12 @@ function Navbarr({logoutUser}) {
         </Navbar.Brand>
       </NavLink>
 
+
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto links align-items-center">
-          <NavLink to="/" className="navLink p-3" style={{textDecoration: 'none'}}>Home</NavLink>
-          <NavLink to="/series" className="navLink p-3" style={{textDecoration: 'none'}}>TV Shows</NavLink>
+          <NavLink to="/browse" className="navLink p-3" style={{textDecoration: 'none'}}>Home</NavLink>
+          <NavLink to="/Shows" className="navLink p-3" style={{textDecoration: 'none'}}>TV Shows</NavLink>
           <NavLink to="/movies" className="navLink p-3" style={{textDecoration: 'none'}}>Movies</NavLink>
           <NavLink to="#" className="navLink p-3" style={{textDecoration: 'none'}}>My List</NavLink>
         </Nav>

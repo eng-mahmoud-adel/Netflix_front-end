@@ -10,10 +10,14 @@ import Payment from './pages/Signup/Payment/Payment';
 import AddProfile from './pages/Profiles/AddProfile';
 import EditProfile from './pages/Profiles/EditProfile';
 import ShowProfiles from './pages/Profiles/ShowProfiles';
+import Browse from './pages/Browse'
 import Movies from './pages/Movies'
+import Shows from './pages/Shows'
 import Player from './pages/DisplayVideo'
 import Notfound from './components/NotFoundPage/404'
 
+import Series from './pages/SeriesPage'
+import seriesPlayer from './pages/seriesPlayer'
 function App() {
   return (
     <BrowserRouter>
@@ -28,8 +32,15 @@ function App() {
         <Route path="/addprofile" component={AddProfile}></Route>
         <Route path="/editprofile" component={EditProfile}></Route>
         <Route path="/showprofiles" component={ShowProfiles}></Route>
-        <Route path="/movies" component={Movies}></Route>
+        <Route path="/Browse" component={Browse}></Route>
+        <Route path="/Movies" component={Movies}></Route>
+        <Route path="/Shows" component={Shows}></Route>
+
         <Route path="/player/:id" component={Player}></Route>
+        <Route path="/series/:id" component={Series}></Route>
+        <Route path="/show/player/:id" component={seriesPlayer}></Route>
+
+
         {/* <Redirect to="/" ></Redirect> */}
         <Route component={Notfound}></Route>
       </Switch>
