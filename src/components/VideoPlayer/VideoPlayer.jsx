@@ -74,8 +74,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 const format = (seconds) => {
   if (isNaN(seconds)) {
     return `00:00`;
@@ -112,7 +110,6 @@ function VideoPlayer({api}) {
   const playerRef = useRef(null);
   const playerContainerRef = useRef(null);
   const controlsRef = useRef(null);
-  const canvasRef = useRef(null);
   const {
     playing,
     controls,
@@ -164,7 +161,6 @@ function VideoPlayer({api}) {
   const handleSeekMouseUp = (e, newValue) => {
     console.log({ value: e.target });
     setState({ ...state, seeking: false });
-    // console.log(sliderRef.current.value)
     playerRef.current.seekTo(newValue / 100, "fraction");
   };
 
@@ -176,7 +172,6 @@ function VideoPlayer({api}) {
     setState({ ...state, seeking: false, volume: parseFloat(newValue / 100) });
   };
   const handleVolumeChange = (e, newValue) => {
-    // console.log(newValue);
     setState({
       ...state,
       volume: parseFloat(newValue / 100),
@@ -299,7 +294,6 @@ function VideoPlayer({api}) {
             volume={volume}
           />
         </div>
-        <canvas ref={canvasRef} />
       </Container>
     </>
   );

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Registration from './pages/Signup/Registration/Registration';
@@ -13,8 +13,9 @@ import ShowProfiles from './pages/Profiles/ShowProfiles';
 import Browse from './pages/Browse'
 import Movies from './pages/Movies'
 import Shows from './pages/Shows'
-
 import Player from './pages/DisplayVideo'
+import Notfound from './components/NotFoundPage/404'
+
 import Series from './pages/SeriesPage'
 import seriesPlayer from './pages/seriesPlayer'
 function App() {
@@ -40,7 +41,8 @@ function App() {
         <Route path="/show/player/:id" component={seriesPlayer}></Route>
 
 
-        <Redirect to="/" ></Redirect>
+        {/* <Redirect to="/" ></Redirect> */}
+        <Route component={Notfound}></Route>
       </Switch>
     </BrowserRouter>
   );

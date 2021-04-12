@@ -16,7 +16,7 @@ function Questions() {
 
             <div className="second-section col-sm-6 mx-auto">
                 <h3 className="mb-3 text-center">Ready to watch? Enter your email to create or restart your membership.</h3>
-                <GetStarted placeholder="Email Address"></GetStarted>
+                <GetStarted placeholder="Email Address" required="required"></GetStarted>
             </div>
         </section>
     )

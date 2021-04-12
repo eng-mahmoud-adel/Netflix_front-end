@@ -5,6 +5,7 @@ import BaseButton from '../Buttons/Buttons';
 import Input from '../Input/Input';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { GoogleLogin } from 'react-google-login';
 
 function LoginForm({login}) {
   const [email, setEmail] = useState('');
@@ -24,17 +25,22 @@ function LoginForm({login}) {
     e.preventDefault();
     login({email, password});
   }
+
+  const responseGoogle = (response) => {
+    const {name, email, imageUrl} = response.profileObj;
+    return {name, email, imageUrl};
+  }
     return (
       <Row className="justify-content-md-center">
         <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
           <Form onSubmit={handleSubmit}>
             <h1 className="text-white mb-4"><b>Sign In</b></h1>
               <Form.Group controlId="formGroupEmail">
-                  <Input type="email" name="email" value={email} onChange={onChangeEmail} placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="email" name="email" value={email} onChange={onChangeEmail} required="required" placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <Form.Group controlId="formGroupPassword">
-                  <Input type="password" name="password" value={password} onChange={onChangePassword} placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="password" name="password" value={password} onChange={onChangePassword} required="required" placeholder="Password" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <BaseButton type="submit" color="btn-danger">Sign In</BaseButton>
@@ -48,15 +54,19 @@ function LoginForm({login}) {
               </Row>
 
               <div>
-                <div className="d-inline-block mr-3" style={{width: '20px', height: '20px'}}>
-                  <img src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png" alt="facebook image" className="w-100" />
+                <div>
+                  <GoogleLogin
+                    clientId="263908953022-4tdu5pighgll2juksrb0296o66tiugvg.apps.googleusercontent.com"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                  />
                 </div>
-                <small style={{color: '#b3b3b3'}}>Login with Facebook</small>
               </div>
 
               <div className="mt-3">
                 <span style={{color: '#b3b3b3'}}>New to Netflix? </span>
-                <NavLink to="#" className="text-white">Sign up now</NavLink>
+                <NavLink to="/" className="text-white">Sign up now</NavLink>
               </div>
 
               <div className="mt-3">
