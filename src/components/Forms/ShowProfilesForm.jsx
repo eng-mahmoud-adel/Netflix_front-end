@@ -4,13 +4,16 @@ import Row from 'react-bootstrap/Row';
 import { Button, Card } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import Input from '../Input/Input';
-import { useState } from 'react';
+
 import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
+import UserCard from './../card/card';
 
-function ShowProfilesForm(props){
-    const [profiles,setProfiles]=useState([]);
 
+
+function ShowProfilesForm({profiles,getprofiles}){
+    
+    
     return ( 
         <>
             <Row>
@@ -19,14 +22,7 @@ function ShowProfilesForm(props){
                     <h1 className="text-center">Who's watching?</h1>
 
                     <div className="d-flex justify-content-center align-items-center row h-50 mb-5">
-                        {profiles.map=(profile=>(
-                        <Card className="mr-3" style={{ width:"150px", height:"150px", backgroundColor: 'rgba(0,0,0,.75)' }}>
-                            <Card.Img variant="top" src={profile.image || defaultPic} />
-                            <Card.Body>
-                                <Card.Title className="text-center">{profile.name||"user"}</Card.Title>
-                            </Card.Body>
-                        </Card>
-                        ))}
+                        <UserCard profiles={profiles} getprofiles={getprofiles}/>
                         <Card className="mr-3" style={{ width:"150px", height:"150px", backgroundColor: 'rgba(0,0,0,.75)' }}>
                             <NavLink to="/addprofile" className="text-center text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
@@ -47,5 +43,5 @@ function ShowProfilesForm(props){
         </>
      );
 }
- 
+
 export default ShowProfilesForm;

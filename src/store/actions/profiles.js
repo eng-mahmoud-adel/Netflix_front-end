@@ -5,12 +5,13 @@ export const AddProfile = 'AddProfile';
 export const UpdateProfile = 'UpdateProfile';
 export const DeleteProfile = 'DeleteProfile';
 
-// const token = localStorage.getItem('access_token');
+// const token = localStorage.getItem('token');
 const token = '86ec5de217db2fed75282bb3709ddd3ac2bf9759';
 // const profileId =localStorage.getItem('profile_id');
 
-export const getprofiles = () => async(dispatch) =>{
 
+export const getprofiles = () => async(dispatch) =>{
+    
     await axios.get(`http://127.0.0.1:8000/api/accounts/profiles/`, {
         headers: {
           'Authorization': `Token ${token}` 
@@ -18,11 +19,12 @@ export const getprofiles = () => async(dispatch) =>{
         )
         .then(
             (response) => {
-                console.log(response.data);
+                
                 dispatch({
                         type: GetProfiles,
-                        payload: response.data,
+                        payload:response.data,
                 })
+
             }
         ).catch((error) => {
             console.error(error);
@@ -51,8 +53,8 @@ export const addprofile = (request) => async(dispatch) =>{
 }
 
 export const updateprofile = (request) => async(dispatch) =>{
-    
-    await axios.put(`http://127.0.0.1:8000/api/accounts/update_delete_profile/${request.id}`,request, {
+    console.log(request);
+    await axios.put(`http://127.0.0.1:8000/api/accounts/update_delete_profile/8`,request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}

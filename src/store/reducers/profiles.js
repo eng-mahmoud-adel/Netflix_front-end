@@ -3,26 +3,29 @@ import Profile from "../../model/Profile";
 
 
 const initialState = {
+    profiles:{},
     profile: {},
-    message:""
+    message:"",
+    
 };
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case GetProfiles:
+            console.log(state.profiles);
             return {
                 ...state,
-                profile:action.payload,
+                profiles:action.payload,
             };
         case AddProfile:
             return {
                 ...state,
-                // message:action.payload
+                message:action.payload
             };
         case UpdateProfile:
             return {
                 ...state,
-
+                profile:action.payload,
             };
         case DeleteProfile:
             return {

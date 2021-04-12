@@ -8,12 +8,31 @@ import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
 
 
-function EditProfileForm(){
-    const [imgSrc, setImgSrc] = useState('');
+function EditProfileForm({updateprofile}){
+    const [name, setName] = useState('');
+    const [isKid, setIsKid] = useState(false);
+    const [imgSrc, setImgSrc] = useState(null);
+    const [image,setImage] = useState();
+    const [user,setUser] = useState(1);
+    const [id,setId] = useState(20);
+
+    const onNameChange = (e) => {
+        if (e.target.value) {
+            const name = e.target.value;
+            setName(name);
+        }
+    }
+
+    const onIsKidChange = (e) => { 
+        const isKid = e.target.checked;
+        setIsKid(isKid);
+    }
 
     const onImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            const imgSrc = URL.createObjectURL(e.target.files[0])
+            const imgSrc = URL.createObjectURL(e.target.files[0]);
+            const image=e.target.files[0];
+            setImage(image);
             setImgSrc(imgSrc);
         }
     }
@@ -21,10 +40,21 @@ function EditProfileForm(){
         console.log("clicked");
     }
      
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let uploadData = new FormData();
+        uploadData.append('id',id);
+        uploadData.append('name',name);
+        uploadData.append('image',image);
+        uploadData.append('isKid',isKid);
+        uploadData.append('user',user);
+        updateprofile.updateprofile(uploadData);
+    }
+     
     return ( 
         <Row className="">
             <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
-                <Form className="col-9">
+                <Form className="col-9"  onSubmit={handleSubmit} encType='multipart/form-data'>
                     <h1>Edit Profile</h1>
                     <hr className="bg-white"/>
                     <Form.Group>
@@ -35,9 +65,10 @@ function EditProfileForm(){
                             <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||defaultPic} />
                         </Form.Group>
                         <Form.Group className="col-offset-2 col-lg col-sm-9">
-                            <Input type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
+                            <Input onChange={onNameChange} type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
                         </Form.Group>
                         <Form.Check 
+                            onChange={onIsKidChange}
                             className="col-lg col-sm-2 ml-3"
                             type='checkbox'
                             label="Kid?"
