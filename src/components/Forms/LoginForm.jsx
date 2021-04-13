@@ -33,8 +33,9 @@ function LoginForm({login}) {
   }
 
   const responseGoogle = (response) => {
-    const {name, email, imageUrl} = response.profileObj;
-    return {name, email, imageUrl};
+    console.log(response);
+    // const {name, email, imageUrl} = response.profileObj;
+    // return {name, email, imageUrl};
   }
     return (
       <Row className="justify-content-md-center">
@@ -66,6 +67,10 @@ function LoginForm({login}) {
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
+                    // isSignedIn={true}
+                    responseType="code"
+                    responseType="token"
+                    accessType="offline"
                   />
                 </div>
               </div>
