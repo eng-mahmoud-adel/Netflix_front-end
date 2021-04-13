@@ -3,17 +3,45 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
 import Input from '../Input/Input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
 
 
-function EditProfileForm(){
-    const [imgSrc, setImgSrc] = useState('');
+
+function EditProfileForm({profile, getprofile, updateprofile, id}){
+    const [name, setName] = useState(profile.name);
+    const [isKid, setIsKid] = useState(profile.isKid);
+    const [imgSrc, setImgSrc] = useState(profile.image);
+    const [image,setImage] = useState();
+    const [user,setUser] = useState();
+    
+    // const [id,setId] = useState(profile.id);
+    console.log(id)
+    useEffect(()=>{
+        console.log("after mounting")
+        getprofile(id);
+    }, [getprofile, updateprofile])
+
+    const imageUrl = profile.image?'http://localhost:8000'+profile.image : defaultPic;
+    console.log(profile.user);
+    const onNameChange = (e) => {
+        if (e.target.value) {
+            const name = e.target.value;
+            setName(name);
+        }
+    }
+
+    const onIsKidChange = (e) => { 
+        const isKid = e.target.checked;
+        setIsKid(isKid);
+    }
 
     const onImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            const imgSrc = URL.createObjectURL(e.target.files[0])
+            const imgSrc = URL.createObjectURL(e.target.files[0]);
+            const image=e.target.files[0];
+            setImage(image);
             setImgSrc(imgSrc);
         }
     }
@@ -21,10 +49,24 @@ function EditProfileForm(){
         console.log("clicked");
     }
      
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log({id,user,image,name})
+        let uploadData = new FormData();
+        uploadData.append('id',id);
+        uploadData.append('name',name);
+        if(image){
+        uploadData.append('image',image);}
+        uploadData.append('isKid',isKid);
+        uploadData.append('user',profile.user);
+        updateprofile(uploadData);
+    }
+     
     return ( 
         <Row className="">
             <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
-                <Form className="col-9">
+            {profile && 
+                <Form className="col-9"  onSubmit={handleSubmit} encType='multipart/form-data'>
                     <h1>Edit Profile</h1>
                     <hr className="bg-white"/>
                     <Form.Group>
@@ -32,12 +74,13 @@ function EditProfileForm(){
                     </Form.Group>
                     <Row className="d-flex-inline justify-content-between align-items-center">
                         <Form.Group className="col-lg col-sm-12">
-                            <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||defaultPic} />
+                            <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||imageUrl} />
                         </Form.Group>
                         <Form.Group className="col-offset-2 col-lg col-sm-9">
-                            <Input type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
+                            <Input onChange={onNameChange}  type="name" name="name" placeholder={profile.name} style={{ backgroundColor: '#555', color: 'white'}} />
                         </Form.Group>
                         <Form.Check 
+                            onChange={onIsKidChange}
                             className="col-lg col-sm-2 ml-3"
                             type='checkbox'
                             label="Kid?"
@@ -48,7 +91,7 @@ function EditProfileForm(){
                         <Button type="submit" className={`btn btn-light w-25 col-lg col-sm-9 ml-3`}>SAVE</Button>
                         <Button type="button" className={`btn btn-outline-dark w-25 col-lg col-sm-9 ml-3`} style={{backgroundColor:"rgba(0,0,0,0)"}} >CANCEL</Button>
                     </Row>
-                </Form>
+                </Form>}
             </Col>
         </Row>
      );

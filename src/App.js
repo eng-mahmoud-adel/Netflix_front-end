@@ -30,7 +30,7 @@ function App() {
         <Route path="/planform" component={Plans}></Route>
         <Route path="/payment" component={Payment}></Route>
         <Route path="/addprofile" component={AddProfile}></Route>
-        <Route path="/editprofile" component={EditProfile}></Route>
+        <Route path="/editprofile/:id" component={EditProfile}></Route>
         <Route path="/showprofiles" component={ShowProfiles}></Route>
         <Route path="/Browse" component={Browse}></Route>
         <Route path="/Movies" component={Movies}></Route>

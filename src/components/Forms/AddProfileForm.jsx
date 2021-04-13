@@ -10,8 +10,10 @@ import defaultPic from './../defaultProfile.jpg';
 
 function AddProfileForm({addprofile}){
     const [name, setName] = useState('');
-    const [isKid, setIsKid] = useState('');
-    const [imgSrc, setImgSrc] = useState('');
+    const [isKid, setIsKid] = useState(false);
+    const [imgSrc, setImgSrc] = useState(null);
+    const [image,setImage] = useState();
+    const [user,setUser] = useState(1);
 
     const onNameChange = (e) => {
         if (e.target.value) {
@@ -20,16 +22,16 @@ function AddProfileForm({addprofile}){
         }
     }
 
-    const onIsKidChange = (e) => {
-        if (e.target.checked) {
-            const isKid = e.target.checked;
-            setIsKid(isKid);
-        }
+    const onIsKidChange = (e) => { 
+        const isKid = e.target.checked;
+        setIsKid(isKid);
     }
 
     const onImageChange = (e) => {
         if (e.target.files && e.target.files[0]) {
-            const imgSrc = URL.createObjectURL(e.target.files[0])
+            const imgSrc = URL.createObjectURL(e.target.files[0]);
+            const image=e.target.files[0];
+            setImage(image);
             setImgSrc(imgSrc);
         }
     }
@@ -39,19 +41,24 @@ function AddProfileForm({addprofile}){
      
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log({name, isKid, imgSrc});
-        addprofile({name, isKid, imgSrc});
+        let uploadData = new FormData();
+        // console.log({name, image, isKid, user})
+        uploadData.append('name',name);
+        uploadData.append('image',image);
+        uploadData.append('isKid',isKid);
+        uploadData.append('user',user);
+        addprofile(uploadData);
     }
 
     return ( 
         <Row className="">
             <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
-                <Form className="col-9"  onSubmit={handleSubmit}>
+                <Form className="col-9"  onSubmit={handleSubmit} encType='multipart/form-data'>
                     <h1>Add Profile</h1>
                     <p className="text-muted">Add a profile for another person watching Netflix.</p>
                     <hr className="bg-white"/>
                     <Form.Group>
-                        <Form.File onChange={onImageChange} id="exampleFormControlFile1"></Form.File>
+                        <Form.File onChange={onImageChange} id="exampleFormControlFile1" required></Form.File>
                     </Form.Group>
                     <Row className="d-flex-inline justify-content-between align-items-center">
                         <Form.Group className="col-lg col-sm-12">

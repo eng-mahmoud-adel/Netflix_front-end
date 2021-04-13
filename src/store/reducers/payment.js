@@ -3,7 +3,7 @@ const initialState =
 {
     plan:{
         name:"",
-        price:"",
+        price:0,
     }
 }
 
