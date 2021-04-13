@@ -20,11 +20,11 @@ function  Row({title,fetchUrl,isLargeRow}){
     useEffect(()=>{
 
        async function fetchData(){
-            const request=await axios.get(fetchUrl)
-            // ,{
-            //     headers: {
-            //       Authorization: token, 
-            //     }}
+            const request=await axios.get(fetchUrl,{
+                headers: {
+                  Authorization: `Token ${localStorage.getItem('token')}`, 
+                }})
+            
             setSeries(request.data)
             return request;
        } 

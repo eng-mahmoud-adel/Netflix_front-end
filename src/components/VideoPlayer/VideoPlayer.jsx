@@ -229,7 +229,10 @@ function VideoPlayer({api}) {
   useEffect(()=>{
 
      async function fetchData(){
-          const request=await axios.get(api);
+          const request=await axios.get(api,{
+            headers: {
+              Authorization: `Token ${localStorage.getItem('token')}`, 
+            }});
           setSeries(request.data.video)
           return request;
      } 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import VideoPlayer from '../components/VideoPlayer/VideoPlayer';
+import { Redirect } from 'react-router-dom';
 
 
 export default class seriesPlayer extends Component {
@@ -12,7 +13,10 @@ export default class seriesPlayer extends Component {
     }
     async componentDidMount() {
         try {
-            const res = await fetch(`http://localhost:8000/api/episodes/${this.state.videoId}`);
+            const res = await fetch(`http://localhost:8000/api/episodes/${this.state.videoId}`,{
+                headers: {
+                  Authorization: `Token ${localStorage.getItem('token')}`, 
+                }});
             const data = await res.json();
             this.setState({ videoData: data });
         } catch (error) {
@@ -21,11 +25,17 @@ export default class seriesPlayer extends Component {
     }
     render() {
         return (
+            <>
+            {localStorage.token? 
             <div>
                 <header>
                     <VideoPlayer api={`api/episodes/${this.state.videoId}`} />
                 </header>
             </div>
+            : 
+                <Redirect to="/login"/>
+            }
+        </>
         )
     }
 }
