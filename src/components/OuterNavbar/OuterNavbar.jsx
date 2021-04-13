@@ -25,7 +25,7 @@ function OuterNavbar({logo_login, left_logo, to}) {
                     </div>
                 }
 
-                <div className="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-2 offset-1 offset-sm-5 offset-md-5 offset-lg-6 offset-xl-8">
+                <div className="col-5 col-sm-3 col-md-3 col-lg-3 col-xl-2 offset-5 offset-sm-5 offset-md-5 offset-lg-6 offset-xl-8">
                     <NavLink to="/login">
                         <BaseButton color="btn btn-danger" style={{height: '100%'}}>Sign In</BaseButton>
                     </NavLink>

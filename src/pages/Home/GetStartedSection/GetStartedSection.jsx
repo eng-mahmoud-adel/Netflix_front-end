@@ -18,7 +18,7 @@ function GetStartedSection() {
             </div>
             {/* background image */}
 
-            <div className="col-sm-12 col-md-9 col-lg-7 mx-auto text-center get-started">
+            <div className="col-md-9 col-lg-7 mx-auto text-center get-started">
                 <h1><b>Unlimited movies, TV shows, and more.</b></h1>
                 <h2 className="mb-4">Watch anywhere. Cancel anytime.</h2>
                 <h3 className="mb-3">Ready to watch? Enter your email to create or restart your membership.</h3>

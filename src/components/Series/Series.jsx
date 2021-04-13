@@ -14,10 +14,16 @@ const Series = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(`/api/series/${params.id}`);
+      const request = await axios.get(`/api/series/${params.id}`,{
+        headers: {
+          Authorization: `Token ${localStorage.getItem('token')}`, 
+        }});
       const epRequest = await axios.get(
         `/api/episodes/search?sid=${params.id}`
-      );
+        ,{
+          headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`, 
+          }});
       setSeries(request.data);
       let sortedEp = epRequest.data.sort((a, b) => a.seasons - b.seasons);
       let sortedSeason = sortedEp.sort(
