@@ -1,7 +1,7 @@
 import { Button, Card } from 'react-bootstrap';
 import { useState,useEffect } from 'react';
 import defaultPic from './../defaultProfile.jpg';
-import { NavLink, useHistory, withRouter } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
     let history = useHistory();

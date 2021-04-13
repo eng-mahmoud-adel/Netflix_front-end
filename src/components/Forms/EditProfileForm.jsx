@@ -3,28 +3,28 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
 import Input from '../Input/Input';
+import { useHistory} from "react-router-dom";
 import { useState, useEffect } from 'react';
 import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
 
 
 
-function EditProfileForm({profile, getprofile, updateprofile, id}){
+function EditProfileForm({profile, getprofile, updateprofile, id, error}){
     const [name, setName] = useState(profile.name);
-    const [isKid, setIsKid] = useState(profile.isKid);
+    const [isKid, setIsKid] = useState(false);
     const [imgSrc, setImgSrc] = useState(profile.image);
     const [image,setImage] = useState();
     const [user,setUser] = useState();
-    
-    // const [id,setId] = useState(profile.id);
-    console.log(id)
+    let history = useHistory();
+
     useEffect(()=>{
         console.log("after mounting")
         getprofile(id);
     }, [getprofile, updateprofile])
 
     const imageUrl = profile.image?'http://localhost:8000'+profile.image : defaultPic;
-    console.log(profile.user);
+
     const onNameChange = (e) => {
         if (e.target.value) {
             const name = e.target.value;
@@ -48,18 +48,26 @@ function EditProfileForm({profile, getprofile, updateprofile, id}){
     const onImageClick = (e) => {
         console.log("clicked");
     }
+
+    const handleCancel = () => {
+        history.push(`/showprofiles`);
+    }
      
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({id,user,image,name})
+        console.log({id,image,name});
         let uploadData = new FormData();
         uploadData.append('id',id);
         uploadData.append('name',name);
         if(image){
-        uploadData.append('image',image);}
+            uploadData.append('image',image);
+        }
         uploadData.append('isKid',isKid);
         uploadData.append('user',profile.user);
         updateprofile(uploadData);
+        if(error == null){
+            history.push(`/showprofiles`);
+        }
     }
      
     return ( 
@@ -89,7 +97,7 @@ function EditProfileForm({profile, getprofile, updateprofile, id}){
                     <hr className="bg-white"/>
                     <Row className="d-flex-inline justify-content-start align-items-center ">
                         <Button type="submit" className={`btn btn-light w-25 col-lg col-sm-9 ml-3`}>SAVE</Button>
-                        <Button type="button" className={`btn btn-outline-dark w-25 col-lg col-sm-9 ml-3`} style={{backgroundColor:"rgba(0,0,0,0)"}} >CANCEL</Button>
+                        <Button type="button" onClick={handleCancel} className={`btn btn-outline-dark w-25 col-lg col-sm-9 ml-3`} style={{backgroundColor:"rgba(0,0,0,0)"}} >CANCEL</Button>
                     </Row>
                 </Form>}
             </Col>

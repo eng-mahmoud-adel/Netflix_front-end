@@ -5,9 +5,11 @@ export const GetProfile = 'GetProfile';
 export const AddProfile = 'AddProfile';
 export const UpdateProfile = 'UpdateProfile';
 export const DeleteProfile = 'DeleteProfile';
+export const ErrorCreate = 'ErrorCreate';
+export const ErrorUpdate = 'ErrorUpdate';
 
 // const token = localStorage.getItem('token');
-const token = '86ec5de217db2fed75282bb3709ddd3ac2bf9759';
+const token = 'cd196b8e6991fc2e624db955b8588b57e92bfdb4';
 
 const profileId =localStorage.getItem('profile_id');
 
@@ -18,18 +20,18 @@ export const getprofiles = () => async(dispatch) =>{
         headers: {
           'Authorization': `Token ${token}` 
         }}
-        )
-        .then(
-            (response) => {
-                dispatch({
-                        type: GetProfiles,
-                        payload:response.data,
-                })
+    ).then(
+        (response) => {
+            dispatch({
+                type: GetProfiles,
+                payload:response.data,
+                error:null
+            })
 
-            }
-        ).catch((error) => {
-            console.error(error);
-          })
+        }
+    ).catch((error) => {
+        console.error(error);
+        })
 }
 
 export const getprofile = (id) => async(dispatch) =>{
@@ -38,19 +40,18 @@ export const getprofile = (id) => async(dispatch) =>{
         headers: {
           'Authorization': `Token ${token}` 
         }}
-        )
-        .then(
-            (response) => {
-                
-                dispatch({
-                        type: GetProfile,
-                        payload:response.data,
-                })
+    ).then((response) => {
+            
+        dispatch({
+            type: GetProfile,
+            payload:response.data,
+            error:null
+        })
 
-            }
-        ).catch((error) => {
-            console.error(error);
-          })
+    }
+    ).catch((error) => {
+        console.error(error);
+    })
 }
 
 export const addprofile = (request) => async(dispatch) =>{
@@ -66,10 +67,24 @@ export const addprofile = (request) => async(dispatch) =>{
                 dispatch({
                         type: AddProfile,
                         payload: response.data,
+                        error:null
                 })
+            },
+            (error) => {
+                // console.log(error.response.status)
+                dispatch({
+                    type: ErrorCreate,
+                    payload: `${error}`,
+                    error:400
+            })
             }
         ).catch((error) => {
-            console.error(error);
+            console.log(error);
+            dispatch({
+                type: ErrorCreate,
+                payload: `${error}`,
+                error:400
+        })
           })
 }
 
@@ -86,10 +101,23 @@ export const updateprofile = (request) => async(dispatch) =>{
                 dispatch({
                         type: UpdateProfile,
                         payload: response.data,
+                        error:null
+                })
+            },
+            (error) => {
+                // console.log(error.response.status)
+                dispatch({
+                    type: ErrorUpdate,
+                    payload: `${error}`,
+                    error:400
                 })
             }
         ).catch((error) => {
-            console.error(error);
+            console.log(error);
+            dispatch({
+                type: ErrorUpdate,
+                payload: `${error}`,
+            })
           })
 }
 

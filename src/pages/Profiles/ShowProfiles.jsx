@@ -20,6 +20,7 @@ const ShowProfiles = ({profiles,getprofiles, getprofile, deleteprofile}) => {
 function mapStateToProps(state){
     return {
         profiles:state.profile.profiles,
+        error: state.profile.error
     }
 };
 
