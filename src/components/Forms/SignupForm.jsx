@@ -1,9 +1,10 @@
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BaseButton from '../Buttons/Buttons';
 import Input from '../Input/Input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 function SignupForm({registerUser, userEmail, error}) {
@@ -25,18 +26,20 @@ function SignupForm({registerUser, userEmail, error}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     registerUser({email, password1, password2});
-    if(error == 400) {
-      console.log('hi')
-      return(
-        alert('error')
-      )
-    }
-    // history.push('/signup');
+  }
+
+  if(!error == 400 || !error == 1) {
+    history.push('/signup');
   }
     return (
         <Row className="justify-content-md-center">
             <Col>
                 <Form onSubmit={handleSubmit}>
+                  {error == 400? 
+                    <Alert variant="danger">Invalid Credientials</Alert>
+                    :
+                    null
+                  }
                     <Form.Group controlId="formGroupEmail">
                         <Input type="email" name="email" value={userEmail} placeholder="Email" style={{height:'60px'}} required="required" disabled="disabled" />
                     </Form.Group>

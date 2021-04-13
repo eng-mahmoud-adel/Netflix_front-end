@@ -38,11 +38,10 @@ export const registerUser = (request) => async (dispatch) => {
                 dispatch({
                     type: SIGNUP,
                     payload: response.statusText,
-                    // accessToken: response.headers.authorization,
+                    error: response.status
                 });
             },
             (error) => {
-                // console.log(error.response.status)
                 dispatch({
                     type: BAD_REQUEST_400,
                     payload: error.response.status

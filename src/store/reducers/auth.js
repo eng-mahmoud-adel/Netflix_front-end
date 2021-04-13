@@ -1,8 +1,8 @@
+import { act } from 'react-dom/test-utils';
 import {LOGIN, SIGNUP, LOGOUT, EMAIL_CHANGED, BAD_REQUEST_400} from '../actions/auth'
 // import User from "../../model/User";
 
 const initialState = {
-    // user: null,
     isLoggedIn: false,
     accessToken: null,
     user: {
@@ -12,7 +12,7 @@ const initialState = {
         msg: '',
         created: false
     },
-    error: null
+    error: 1
 };
 
 const authReducer = (state = initialState, action) => {
