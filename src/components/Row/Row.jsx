@@ -30,9 +30,9 @@ function  Row({title,fetchUrl,isLargeRow}){
        } 
        fetchData();
     },[fetchUrl])
-console.log(series)
-    
-    return(
+
+    const dataReturn=()=>{
+        return(
         <div className="row d-block mx-0 p-5">
             <h2>{title}</h2>
             
@@ -51,7 +51,10 @@ console.log(series)
                 </Carousel>
             </div>
             
-        </div>      
+        </div>)
+    }    
+    return(
+        series.length>0&&dataReturn()
     )
 }
 export default Row;
