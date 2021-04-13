@@ -15,6 +15,8 @@ import Movies from './pages/Movies'
 import Shows from './pages/Shows'
 import Player from './pages/DisplayVideo'
 import Notfound from './components/NotFoundPage/404'
+import Search from './pages/Search'
+
 
 import Series from './pages/SeriesPage'
 import seriesPlayer from './pages/seriesPlayer'
@@ -35,6 +37,8 @@ function App() {
         <Route path="/Browse" component={Browse}></Route>
         <Route path="/Movies" component={Movies}></Route>
         <Route path="/Shows" component={Shows}></Route>
+        <Route path="/Search/:name" component={Search}></Route>
+
 
         <Route path="/player/:id" component={Player}></Route>
         <Route path="/series/:id" component={Series}></Route>
