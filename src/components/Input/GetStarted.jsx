@@ -37,7 +37,7 @@ function GetStarted({placeholder, required, userEmail, changeEmail}) {
                 type="email"
             />
             
-              <InputGroup.Append style={{width:'217px'}}>
+              <InputGroup.Append className="col-5 col-md-5 col-lg-4 px-0" style={{width:'217px'}}>
                 <BaseButton type="submit" color="btn-danger" style={{borderTopLeftRadius: '0', borderBottomLeftRadius: '0', height: '100%'}} right_icon="fas fa-chevron-right">Get Started</BaseButton>
               </InputGroup.Append>
               
