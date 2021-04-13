@@ -8,8 +8,8 @@ export const DeleteProfile = 'DeleteProfile';
 
 // const token = localStorage.getItem('token');
 const token = '86ec5de217db2fed75282bb3709ddd3ac2bf9759';
-const profileId = '10'
-// const profileId =localStorage.getItem('profile_id');
+
+const profileId =localStorage.getItem('profile_id');
 
 
 export const getprofiles = () => async(dispatch) =>{
@@ -21,7 +21,6 @@ export const getprofiles = () => async(dispatch) =>{
         )
         .then(
             (response) => {
-                console.log(response.data.reduce(( b) => ({  ...b })));
                 dispatch({
                         type: GetProfiles,
                         payload:response.data,
@@ -33,9 +32,9 @@ export const getprofiles = () => async(dispatch) =>{
           })
 }
 
-export const getprofile = () => async(dispatch) =>{
+export const getprofile = (id) => async(dispatch) =>{
     
-    await axios.get(`http://127.0.0.1:8000/api/accounts/profile/${profileId}`, {
+    await axios.get(`http://127.0.0.1:8000/api/accounts/profile/${id || profileId}`, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
@@ -76,7 +75,7 @@ export const addprofile = (request) => async(dispatch) =>{
 
 export const updateprofile = (request) => async(dispatch) =>{
     console.log(request);
-    await axios.put(`http://127.0.0.1:8000/api/accounts/update_delete_profile/8`,request, {
+    await axios.put(`http://127.0.0.1:8000/api/accounts/update_delete_profile/${request.id || profileId}`,request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}

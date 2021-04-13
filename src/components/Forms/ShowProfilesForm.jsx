@@ -11,10 +11,9 @@ import UserCard from './../card/card';
 
 
 
-function ShowProfilesForm({profiles,getprofiles, deleteprofile}){
+function ShowProfilesForm({profiles,getprofiles, getprofile, deleteprofile}){
     
     useEffect(()=>{
-        console.log("after mounting")
         getprofiles();
     }, [getprofiles])
     
@@ -27,7 +26,7 @@ function ShowProfilesForm({profiles,getprofiles, deleteprofile}){
                     <h1 className="text-center">Who's watching?</h1>
 
                     <div className="d-flex justify-content-center align-items-center row h-50 mb-5">
-                        {profiles.length > 0 && <UserCard profiles={profiles} getprofiles={getprofiles} deleteprofile={deleteprofile}/>}
+                        {profiles.length > 0 && <UserCard profiles={profiles} getprofiles={getprofiles} getprofile={getprofile} deleteprofile={deleteprofile}/>}
                         <Card style={{ width: '10rem', height:'18rem', backgroundColor: 'rgba(0,0,0,.75)' }}>
                             <NavLink to="/addprofile" className="text-center text-white">
                             <Card.Img height="150" width="150" variant="top" src={ plus} />

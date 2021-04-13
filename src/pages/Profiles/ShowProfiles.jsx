@@ -2,15 +2,15 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import ShowProfilesForm from '../../components/Forms/ShowProfilesForm';
 import { connect } from "react-redux";
-import { getprofiles, deleteprofile } from '../../store/actions/profiles';
+import { getprofiles, getprofile, deleteprofile } from '../../store/actions/profiles';
 
-const ShowProfiles = ({profiles,getprofiles, deleteprofile}) => {
+const ShowProfiles = ({profiles,getprofiles, getprofile, deleteprofile}) => {
     
     return ( 
         <>
         <div style={{backgroundColor:"black" , height:'100%',overflow:'visible'}}>
             <div className="col-12 col-md-9 col-lg-10 col-xl-10 mx-auto py-5" style={{height:"815px",backgroundColor:"black",color:'white'}}>
-                <ShowProfilesForm profiles={profiles} getprofiles={getprofiles} deleteprofile={deleteprofile}/> 
+                <ShowProfilesForm profiles={profiles} getprofiles={getprofiles} getprofile={getprofile} deleteprofile={deleteprofile}/> 
             </div>
         </div> 
         </>
@@ -27,6 +27,9 @@ function mapStateToProps(state){
 const mapDispatchToProps = (dispatch) => ({
     getprofiles: () => {
         dispatch(getprofiles())
+    },
+    getprofile: () => {
+        dispatch(getprofile())
     },
     deleteprofile: (request) => {
         dispatch(deleteprofile(request))

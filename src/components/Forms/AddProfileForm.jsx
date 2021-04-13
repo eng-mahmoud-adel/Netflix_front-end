@@ -58,7 +58,7 @@ function AddProfileForm({addprofile}){
                     <p className="text-muted">Add a profile for another person watching Netflix.</p>
                     <hr className="bg-white"/>
                     <Form.Group>
-                        <Form.File onChange={onImageChange} id="exampleFormControlFile1"></Form.File>
+                        <Form.File onChange={onImageChange} id="exampleFormControlFile1" required></Form.File>
                     </Form.Group>
                     <Row className="d-flex-inline justify-content-between align-items-center">
                         <Form.Group className="col-lg col-sm-12">

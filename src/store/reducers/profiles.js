@@ -12,7 +12,6 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case GetProfile:
-            console.log(state.profile);
             return {
                 ...state,
                 profile:action.payload,
