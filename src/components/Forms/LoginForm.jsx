@@ -10,6 +10,7 @@ import { GoogleLogin } from 'react-google-login';
 function LoginForm({login}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
 
   const onChangeEmail = (e) => {
     const email = e.target.value;
@@ -20,6 +21,11 @@ function LoginForm({login}) {
     const password = e.target.value;
     setPassword(password);
   };
+
+  const handleLearnMore = (e) => {
+    e.target.style.display = 'none';
+    setShow(true);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +38,7 @@ function LoginForm({login}) {
   }
     return (
       <Row className="justify-content-md-center">
-        <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '660px', padding: '60px 68px 40px'}}>
+        <Col style={{backgroundColor: 'rgba(0,0,0,.75)', height: '700px', padding: '60px 68px 40px'}}>
           <Form onSubmit={handleSubmit}>
             <h1 className="text-white mb-4"><b>Sign In</b></h1>
               <Form.Group controlId="formGroupEmail">
@@ -71,7 +77,9 @@ function LoginForm({login}) {
 
               <div className="mt-3">
                 <small style={{color: '#b3b3b3'}} className="mr-2">This page is protected by Google reCAPTCHA to ensure you're not a bot.</small>
-                <NavLink to="#"><small>Learn more</small></NavLink>
+                <small className="btn-link" style={{cursor: 'pointer'}} onClick={handleLearnMore}>Learn more</small>
+                <br/>
+                {show && <small style={{color: '#b3b3b3'}}>The information collected by Google reCAPTCHA is subject to the Google Privacy Policy and Terms of Service, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).</small>}
               </div>
           </Form>
         </Col>
