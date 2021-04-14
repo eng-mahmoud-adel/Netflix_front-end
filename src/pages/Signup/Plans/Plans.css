@@ -65,6 +65,10 @@
     .plans .settings .first-row {
         width: 410px;
     }
+
+    .plans footer {
+        margin-top: 218px;
+    }
 }
 
 /* for large screen */

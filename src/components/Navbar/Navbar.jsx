@@ -1,11 +1,12 @@
-
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Form, Nav, FormControl ,NavDropdown} from "react-bootstrap";
 import { Route,Link,Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import { logoutUser } from '../../store/actions/auth';
+import { connect } from 'react-redux';
 
-function Navbarr({history}) {
+function Navbarr({history, logoutUser}) {
   const [background, setbackground] =useState('')
   const [search,setSearch] =useState('')
 
@@ -80,10 +81,16 @@ function Navbarr({history}) {
         </Link>
         <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.4" onClick={logoutUser}>Logout</NavDropdown.Item>
       </NavDropdown>
         </Navbar>
     );
   }
 
-export default withRouter(Navbarr);
+const mapDispatchToProps = (dispatch) => ({
+  logoutUser: () => {
+      dispatch(logoutUser())
+  },
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Navbarr));

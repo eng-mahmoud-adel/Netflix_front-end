@@ -1,9 +1,11 @@
-/* body {
-  background-color: #000 !important;
-} */
+body {
+}
 .series-info {
   position: relative;
-  top: 100px;
+  background-color: #000 !important;
+  padding-top: 100px;
+  width: 100%;
+
 }
 .title {
   margin-left: 50px;
@@ -37,6 +39,7 @@
   margin-left: 18px;
   height: 300px;
   margin-left: 10px;
+  height: 100%;
 }
 .dropdown-menu {
   background-color: #000 !important;

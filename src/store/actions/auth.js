@@ -4,6 +4,8 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SIGNUP = 'SIGNUP';
 export const EMAIL_CHANGED = 'EMAIL_CHANGED';
+export const FORGOT_PASSWORD = 'FORGOT_PASSWORD';
+export const RESET_PASSWORD_CONFIRM = 'RESET_PASSWORD_CONFIRM';
 export const BAD_REQUEST_400 = 'BAD_REQUEST_400';
 
 export const login = (request) => async (dispatch) => {
@@ -59,9 +61,32 @@ export const logoutUser = () => (dispatch) => {
     })
 };
 
+// that will take email from home page at getstarted section and will be shown in singup form
 export const changeEmail = (email) => (dispatch) => {
     dispatch({
         type: EMAIL_CHANGED,
         payload: email
     })
+};
+
+export const forgotPassword = (email) => async (dispatch) => {
+    await axios.post(`http://localhost:8000/api/accounts/auth/password/reset/`, email)
+    .then(
+        (response) => {
+            dispatch({
+                type: FORGOT_PASSWORD,
+                payload: response.data
+            });
+    });
+}
+
+export const resetPasswordConfirm = (request) => async (dispatch) => {
+    await axios.post(`http://localhost:8000/api/accounts/auth/password/reset/confirm/`, request)
+    .then(
+        (response) => {
+            dispatch({
+                type: RESET_PASSWORD_CONFIRM,
+                payload: response.data
+            });
+    });
 };
