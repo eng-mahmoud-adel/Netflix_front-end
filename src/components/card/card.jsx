@@ -19,7 +19,6 @@ function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
     
     const handleClick=(e)=>{
         const id = e.target.id;
-        console.log(id);
         localStorage.setItem("profile_id",id);
         history.push(`/Browse`);
     }

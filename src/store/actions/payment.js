@@ -3,37 +3,31 @@ export const PAYMENT = 'PAYMENT';
 export const CREATEERROR = 'CREATEERROR';
 export const CHOOSE_PLAN = 'CHOOSEPLAN';
 
-// const token = localStorage.getItem('token');
-const token = 'cd196b8e6991fc2e624db955b8588b57e92bfdb4';
+const token = localStorage.getItem('token');
 
 export const payment = (request) => async(dispatch) =>{
-    console.log(request);
     await axios.post(`http://127.0.0.1:8000/api/accounts/payment/create`, request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
-        )
-        .then(
-            (response) => {
-                console.log(response);
-                dispatch({
-                        type: PAYMENT,
-                        payload: response.data,
-                })
-            }
-        ).catch((error) => {
-            console.error(error);
+    ).then(
+        (response) => {
             dispatch({
-                type: CREATEERROR,
-                payload: error.data,
+                    type: PAYMENT,
+                    payload: response.data,
+            })
+        }
+    ).catch((error) => {
+        dispatch({
+            type: CREATEERROR,
+            payload: error.data,
         })
-          })
+    })
 }
 
 export const chooseplan = (plan) => async(dispatch) =>{
-    console.log(plan);
     dispatch({
         type: CHOOSE_PLAN,
         payload: plan
-})
+    })
 }

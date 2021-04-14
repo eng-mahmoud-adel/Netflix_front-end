@@ -19,7 +19,6 @@ function EditProfileForm({profile, getprofile, updateprofile, id, error}){
     let history = useHistory();
 
     useEffect(()=>{
-        console.log("after mounting")
         getprofile(id);
     }, [getprofile, updateprofile])
 
@@ -45,10 +44,7 @@ function EditProfileForm({profile, getprofile, updateprofile, id, error}){
             setImgSrc(imgSrc);
         }
     }
-    const onImageClick = (e) => {
-        console.log("clicked");
-    }
-
+    
     const handleCancel = () => {
         history.push(`/showprofiles`);
     }
@@ -82,7 +78,7 @@ function EditProfileForm({profile, getprofile, updateprofile, id, error}){
                     </Form.Group>
                     <Row className="d-flex-inline justify-content-between align-items-center">
                         <Form.Group className="col-lg col-sm-12">
-                            <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||imageUrl} />
+                            <ProfilePic onChange={onImageChange} width="150" height="150" imgSrc={imgSrc ||imageUrl} />
                         </Form.Group>
                         <Form.Group className="col-offset-2 col-lg col-sm-9">
                             <Input onChange={onNameChange}  type="name" name="name" placeholder={profile.name} style={{ backgroundColor: '#555', color: 'white'}} />

@@ -33,7 +33,6 @@ function Plans({chooseplan, Plan}) {
     }
     
     useEffect(() => {
-        console.log(Plan);
         switch (choosedPlan){
             case 0:
                 return chooseplan({
@@ -53,9 +52,7 @@ function Plans({chooseplan, Plan}) {
                     price: 200
                 })
         }
-        console.log(Plan);
-
-      });
+    });
 
     return(
         <div className="plans">
@@ -161,4 +158,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
   
 export default connect(mapStateToProps, mapDispatchToProps)(Plans);
-// export default Plans;

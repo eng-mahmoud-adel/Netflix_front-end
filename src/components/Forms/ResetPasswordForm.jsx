@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Input from "../../components/Input/Input";
 import BaseButton from '../Buttons/Buttons';
 import Alert from 'react-bootstrap/Alert';
+import { useHistory } from 'react-router-dom';
 
 function ResetPasswordForm({forgotPassword, resetPasswordConfirm, forgotPasswordMsg, forgotPasswordError}) {
     const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ function ResetPasswordForm({forgotPassword, resetPasswordConfirm, forgotPassword
     const [uid, setUid] = useState('');
     const [token, setToken] = useState('');
     const [showForm, setShowForm] = useState(true);
+    let history = useHistory();
 
     const onChangeEmail = (e) => {
         const email = e.target.value;
@@ -48,6 +50,7 @@ function ResetPasswordForm({forgotPassword, resetPasswordConfirm, forgotPassword
     const handleConfirmResetSubmit = (e) => {
         e.preventDefault();
         resetPasswordConfirm({new_password1, new_password2, uid, token});
+        history.push('/login')
     }
 
     return(

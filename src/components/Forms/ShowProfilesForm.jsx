@@ -36,10 +36,6 @@ function ShowProfilesForm({profiles,getprofiles, getprofile, deleteprofile}){
                             </Card.Body>
                         </Card>
                     </div>
-                    
-                    {/* <div className="d-flex justify-content-center align-items-center my-5">
-                        <Button type="button" className={`btn btn-outline-dark col-xs-9`} style={{backgroundColor:"rgba(0,0,0,0)"}} >Manage Profiles</Button>
-                    </div> */}
                 </Col>
             </Row>
         </>

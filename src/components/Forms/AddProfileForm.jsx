@@ -14,7 +14,6 @@ function AddProfileForm({addprofile, error}){
     const [isKid, setIsKid] = useState(false);
     const [imgSrc, setImgSrc] = useState(null);
     const [image,setImage] = useState();
-    // const [user,setUser] = useState(1);
     let history = useHistory();
 
     const onNameChange = (e) => {
@@ -45,13 +44,10 @@ function AddProfileForm({addprofile, error}){
      
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log({image,name})
         let uploadData = new FormData();
-        // console.log({name, image, isKid, user})
         uploadData.append('name',name);
         uploadData.append('image',image);
         uploadData.append('isKid',isKid);
-        // uploadData.append('user',user);
         addprofile(uploadData);
         if(error == null){
             history.push(`/showprofiles`);

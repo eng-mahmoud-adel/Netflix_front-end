@@ -9,18 +9,16 @@ import { payment } from '../../../store/actions/payment';
 
 
 function Payment({plan, error, payment}) {
-    console.log(plan);
     let history = useHistory();
 
-
     const handleToken = () => {
-        console.log(plan);
         payment(plan);
-        
     }
+
     if(error === null){
         history.push(`/showprofiles`);
     }
+
     return(
         <div className="payment">
             <div className="mx-3 mx-md-5 mt-3">
@@ -57,7 +55,6 @@ function Payment({plan, error, payment}) {
 }
 
 function mapStateToProps(state){
-    console.log(state);
     return {
         plan:state.payment.plan,
         error:state.payment.error
