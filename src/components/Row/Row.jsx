@@ -31,9 +31,9 @@ function  Row({title,fetchUrl,isLargeRow}){
        fetchData();
     },[fetchUrl])
 console.log(series)
-    
-    return(
-        <div className="row d-block mx-0 p-5">
+    const getData=()=>{
+        return(
+            <div className="row d-block mx-0 p-5">
             <h2>{title}</h2>
             
             <div className="row__posters">
@@ -52,6 +52,11 @@ console.log(series)
             </div>
             
         </div>      
+        )
+    }    
+
+    return(
+        series.length>0 && getData()
     )
 }
 export default Row;
