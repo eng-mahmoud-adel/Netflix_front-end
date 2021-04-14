@@ -1,24 +1,26 @@
 import Footer from "../../../components/Footer/Footer";
 import OuterNavbar from "../../../components/OuterNavbar/OuterNavbar";
 import './Payment.css';
+import { useHistory} from "react-router-dom";
 import { useState } from 'react';
 import StripeCheckout from "react-stripe-checkout";
 import { connect } from "react-redux";
+import { payment } from '../../../store/actions/payment';
 
 
-function Payment(props) {
-    console.log(props.plans);
-    const [plan] = useState({
-        name: "Basic Plan",
-        price: 120,
-    });
+function Payment({plan, error, payment}) {
+    console.log(plan);
+    let history = useHistory();
 
-    const handleToken = (token) => {
-       if(token.id){
-           
-       }
+
+    const handleToken = () => {
+        console.log(plan);
+        payment(plan);
+        
     }
-
+    if(error === null){
+        history.push(`/showprofiles`);
+    }
     return(
         <div className="payment">
             <div className="mx-3 mx-md-5 mt-3">
@@ -40,7 +42,7 @@ function Payment(props) {
                 <StripeCheckout
                     stripeKey="pk_test_51IekVlDXAZQjI1ksNZhrI6hovgFp3sHw9qSR9rXhdgG1hnu4K1UGCLME4TEgTBuRVUBwSqLj5bNW6bflp9gy1A1500HOwEc7nG"
                     token={handleToken}
-                    name={plan.name}
+                    name={plan.plan_type}
                     amount={plan.price * 0.064 * 100}
                 />
             </section>
@@ -57,8 +59,15 @@ function Payment(props) {
 function mapStateToProps(state){
     console.log(state);
     return {
-        plans:state,
+        plan:state.payment.plan,
+        error:state.payment.error
     }
 };
+
+const mapDispatchToProps = (dispatch) => ({
+    payment: (request) => {
+        dispatch(payment(request))
+    }
+});
   
-export default connect(mapStateToProps)(Payment);
+export default connect(mapStateToProps, mapDispatchToProps)(Payment);

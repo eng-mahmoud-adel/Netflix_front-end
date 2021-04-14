@@ -6,8 +6,8 @@ import { addprofile } from '../../store/actions/profiles';
 const AddProfile = ({addprofile, error}) => {
     return ( 
         <>
-        <div style={{backgroundColor:"black"}}>
-            <div className="col-12 col-md-9 col-lg-10 col-xl-10 mx-auto py-5" style={{height:"815px",backgroundColor:"black",color:'white'}}>
+        <div style={{backgroundColor:"black" , height:'2000px'}}>
+            <div className="col-12 col-md-9 col-lg-10 col-xl-10 mx-auto py-5" style={{color:'white'}}>
                 <AddProfileForm addprofile={addprofile} error={error}/> 
             </div>
         </div> 

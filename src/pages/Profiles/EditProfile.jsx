@@ -8,7 +8,7 @@ const EditProfile = ({updateprofile ,getprofile , profile, match, error}) => {
     const id = match.params.id;
     return ( 
         <>
-        <div style={{backgroundColor:"black"}}>
+        <div style={{backgroundColor:"black" , height:'2000px'}}>
             <div className="col-12 col-md-9 col-lg-10 col-xl-10 mx-auto py-5" style={{height:"815px",backgroundColor:"black",color:'white'}}>
             <EditProfileForm profile={profile} getprofile={getprofile} updateprofile={updateprofile} id={id} error={error}/> 
             </div>
