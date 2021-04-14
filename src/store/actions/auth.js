@@ -34,7 +34,7 @@ export const registerUser = (request) => async (dispatch) => {
     await axios.post(`http://127.0.0.1:8000/api/accounts/auth/register/`, request)
         .then(
             (response) => {
-                // localStorage.setItem('access_token', response.headers.authorization);
+                localStorage.setItem('token', response.data.key);
                 dispatch({
                     type: SIGNUP,
                     payload: response.statusText,

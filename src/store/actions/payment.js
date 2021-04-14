@@ -1,7 +1,7 @@
 import axios from 'axios';
 export const PAYMENT = 'PAYMENT';
 export const CREATEERROR = 'CREATEERROR';
-export const CHOOSEPLAN = 'CHOOSEPLAN';
+export const CHOOSE_PLAN = 'CHOOSEPLAN';
 
 // const token = localStorage.getItem('token');
 const token = 'cd196b8e6991fc2e624db955b8588b57e92bfdb4';
@@ -33,7 +33,7 @@ export const payment = (request) => async(dispatch) =>{
 export const chooseplan = (plan) => async(dispatch) =>{
     console.log(plan);
     dispatch({
-        type: CHOOSEPLAN,
+        type: CHOOSE_PLAN,
         payload: plan
 })
 }

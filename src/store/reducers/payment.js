@@ -1,4 +1,4 @@
-import { PAYMENT , CHOOSEPLAN, CREATEERROR} from './../actions/payment';
+import { PAYMENT , CHOOSE_PLAN, CREATEERROR} from './../actions/payment';
 
 
 const initialState =
@@ -15,7 +15,7 @@ const paymentReducer = (state=initialState, action) => {
             ...state,
             error: null  
         };
-    }else if (action.type === CHOOSEPLAN){
+    }else if (action.type === CHOOSE_PLAN){
         return {
             ...state,
             plan:action.payload,

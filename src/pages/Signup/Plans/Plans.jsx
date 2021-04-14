@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import OuterNavbar from "../../../components/OuterNavbar/OuterNavbar";
 import Footer from "../../../components/Footer/Footer";
 import BaseButton from '../../../components/Buttons/Buttons';
 import PlanTypes from "../../../components/PlanTypes/PlanTypes";
 import Table from 'react-bootstrap/Table'
+import { connect } from "react-redux";
 import './Plans.css';
+import { chooseplan } from '../../../store/actions/payment';
 
-function Plans() {
+
+
+function Plans({chooseplan, Plan}) {
     const [plan, setPlan] = useState(['Basic', 'Standard', 'Premium']);
     const [choosedPlan, setChoosedPlan] = useState('0');
+    const BASIC_PLAN = "EGP120";
+    const STANDARD_PLAN = "EGP165";
+    const PREMIUM_PLAN = "EGP200";
+    
 
     const choosePlan = (e, index) => {
         let allPlans = e.target.parentElement.children;
@@ -21,8 +29,33 @@ function Plans() {
         if(e.target.id == plan[index]) {
             e.target.classList.add('active');
         }
-
+        
     }
+    
+    useEffect(() => {
+        console.log(Plan);
+        switch (choosedPlan){
+            case 0:
+                return chooseplan({
+                    plan_type: plan[choosedPlan],
+                    price: 120
+                })
+            break;
+            case 1:
+                return chooseplan({
+                    plan_type: plan[choosedPlan],
+                    price: 165
+                })
+            break;
+            case 2:
+                return chooseplan({
+                    plan_type: plan[choosedPlan],
+                    price: 200
+                })
+        }
+        console.log(Plan);
+
+      });
 
     return(
         <div className="plans">
@@ -69,9 +102,9 @@ function Plans() {
                             </tr>
                             <tr>
                                 <td className="border-top-0 d-none d-sm-table-cell first-row">Monthly price</td>
-                                <td className={`border-top-0 ${choosedPlan == '0' ? 'choice': ''}`}>EGP120</td>
-                                <td className={`border-top-0 ${choosedPlan == '1' ? 'choice': ''}`}>EGP165</td>
-                                <td className={`border-top-0 ${choosedPlan == '2' ? 'choice': ''}`}>EGP200</td>
+                                <td className={`border-top-0 ${choosedPlan == '0' ? 'choice': ''}`}>{BASIC_PLAN}</td>
+                                <td className={`border-top-0 ${choosedPlan == '1' ? 'choice': ''}`}>{STANDARD_PLAN}</td>
+                                <td className={`border-top-0 ${choosedPlan == '2' ? 'choice': ''}`}>{PREMIUM_PLAN}</td>
                             </tr>
                             <tr>
                                 <td className="d-none d-sm-table-cell">Video quality</td>
@@ -116,4 +149,16 @@ function Plans() {
     )
 }
 
-export default Plans;
+function mapStateToProps(state){
+    return {
+        Plan:state.payment.plan,
+    }
+};
+const mapDispatchToProps = (dispatch) => ({
+    chooseplan: (plan) => {
+        dispatch(chooseplan(plan))
+    }
+});
+  
+export default connect(mapStateToProps, mapDispatchToProps)(Plans);
+// export default Plans;
