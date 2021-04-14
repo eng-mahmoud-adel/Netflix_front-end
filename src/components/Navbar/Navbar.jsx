@@ -26,6 +26,7 @@ function Navbarr({history, logoutUser}) {
     document.addEventListener("scroll", backgroundHandler)
     return () => window.removeEventListener("scroll",backgroundHandler);
   },[])
+  
     return (
         <Navbar style={{backgroundColor:background}}className="navbar" expand="lg">
           <Navbar.Brand >
@@ -75,7 +76,9 @@ function Navbarr({history, logoutUser}) {
                 <img id='nav-thumbnail'src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png'/>
 
             } id="dropdown-basic">
-        <NavDropdown.Item href="#action/3.1">Profiles</NavDropdown.Item>
+        <Link to="/showprofiles">
+          <NavDropdown.Item href="#action/3.1">Profiles</NavDropdown.Item>
+        </Link>
         <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4" onClick={logoutUser}>Logout</NavDropdown.Item>

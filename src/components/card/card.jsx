@@ -1,7 +1,7 @@
 import { Button, Card } from 'react-bootstrap';
 import { useState,useEffect } from 'react';
 import defaultPic from './../defaultProfile.jpg';
-import { NavLink, useHistory, withRouter } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
     let history = useHistory();
@@ -16,6 +16,13 @@ function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
         const id = e.target.id;
         deleteprofile(id);
     }
+    
+    const handleClick=(e)=>{
+        const id = e.target.id;
+        console.log(id);
+        localStorage.setItem("profile_id",id);
+        history.push(`/Browse`);
+    }
 
     useEffect(()=>{
         getprofiles();
@@ -24,7 +31,7 @@ function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
     return (
         profiles.map( (item) => (
             <Card className="mr-3" style={{ width: '12rem', height:'18rem', backgroundColor: 'rgba(0,0,0,.75)' , margin:'.5rem' }}>
-                <Card.Img variant="top" height="150" src={ item.image?'http://localhost:8000'+item.image : defaultPic} />
+                <Card.Img onClick={handleClick} id={item.id} variant="top" height="150" src={ item.image?'http://localhost:8000'+item.image : defaultPic} />
                 <Card.Body>
                     <Card.Title className="text-center">{item.name||"user"}</Card.Title>
                     <Button className={`btn btn-outline-dark`}  style={{backgroundColor:"rgba(0,0,0,0)"}} onClick={handleEdit} id={item.id} variant="primary">Edit</Button>

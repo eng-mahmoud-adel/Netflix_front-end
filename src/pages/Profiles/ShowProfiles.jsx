@@ -8,7 +8,7 @@ const ShowProfiles = ({profiles,getprofiles, getprofile, deleteprofile}) => {
     
     return ( 
         <>
-        <div style={{backgroundColor:"black" , height:'100%',overflow:'visible'}}>
+        <div style={{backgroundColor:"black" , height:'2500px',overflow:'visible'}}>
             <div className="col-12 col-md-9 col-lg-10 col-xl-10 mx-auto py-5" style={{height:"815px",backgroundColor:"black",color:'white'}}>
                 <ShowProfilesForm profiles={profiles} getprofiles={getprofiles} getprofile={getprofile} deleteprofile={deleteprofile}/> 
             </div>
@@ -20,6 +20,7 @@ const ShowProfiles = ({profiles,getprofiles, getprofile, deleteprofile}) => {
 function mapStateToProps(state){
     return {
         profiles:state.profile.profiles,
+        error: state.profile.error
     }
 };
 

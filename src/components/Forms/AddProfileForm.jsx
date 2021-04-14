@@ -4,16 +4,18 @@ import Row from 'react-bootstrap/Row';
 import { Button } from 'react-bootstrap';
 import Input from '../Input/Input';
 import { useState } from 'react';
+import { useHistory} from "react-router-dom";
 import ProfilePic from './../ProfilePicture/ProfilePic';
 import defaultPic from './../defaultProfile.jpg';
 
 
-function AddProfileForm({addprofile}){
+function AddProfileForm({addprofile, error}){
     const [name, setName] = useState('');
     const [isKid, setIsKid] = useState(false);
     const [imgSrc, setImgSrc] = useState(null);
     const [image,setImage] = useState();
-    const [user,setUser] = useState(1);
+    // const [user,setUser] = useState(1);
+    let history = useHistory();
 
     const onNameChange = (e) => {
         if (e.target.value) {
@@ -35,19 +37,25 @@ function AddProfileForm({addprofile}){
             setImgSrc(imgSrc);
         }
     }
-    const onImageClick = (e) => {
-        console.log("clicked");
+    
+
+    const handleCancel = () => {
+        history.push(`/showprofiles`);
     }
      
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log({image,name})
         let uploadData = new FormData();
         // console.log({name, image, isKid, user})
         uploadData.append('name',name);
         uploadData.append('image',image);
         uploadData.append('isKid',isKid);
-        uploadData.append('user',user);
+        // uploadData.append('user',user);
         addprofile(uploadData);
+        if(error == null){
+            history.push(`/showprofiles`);
+        }
     }
 
     return ( 
@@ -62,10 +70,10 @@ function AddProfileForm({addprofile}){
                     </Form.Group>
                     <Row className="d-flex-inline justify-content-between align-items-center">
                         <Form.Group className="col-lg col-sm-12">
-                            <ProfilePic onChange={onImageChange} onClick={onImageClick} width="150" height="150" imgSrc={imgSrc ||defaultPic} />
+                            <ProfilePic onChange={onImageChange} width="150" height="150" imgSrc={imgSrc ||defaultPic} />
                         </Form.Group>
                         <Form.Group className="col-offset-2 col-lg col-sm-9">
-                            <Input onChange={onNameChange} type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} />
+                            <Input onChange={onNameChange} type="name" name="name" placeholder="Name" style={{ backgroundColor: '#555', color: 'white'}} required />
                         </Form.Group>
                         <Form.Check 
                             onChange={onIsKidChange}
@@ -77,7 +85,7 @@ function AddProfileForm({addprofile}){
                     <hr className="bg-white"/>
                     <Row className="d-flex-inline justify-content-start align-items-center">
                         <Button type="submit" className={`btn w-25 col-lg col-sm-auto ml-3`} style={{backgroundColor:"#e50914"}}><small>CONTINUE</small></Button>
-                        <Button type="button" className={`btn btn-outline-dark w-25 col-lg col-sm-auto ml-3`} style={{backgroundColor:"rgba(0,0,0,0)"}} >CANCEL</Button>
+                        <Button type="button" onClick={handleCancel} className={`btn btn-outline-dark w-25 col-lg col-sm-auto ml-3`} style={{backgroundColor:"rgba(0,0,0,0)"}} >CANCEL</Button>
                     </Row>
                 </Form>
             </Col>
