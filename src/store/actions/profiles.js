@@ -8,15 +8,12 @@ export const DeleteProfile = 'DeleteProfile';
 export const ErrorCreate = 'ErrorCreate';
 export const ErrorUpdate = 'ErrorUpdate';
 
-// const token = localStorage.getItem('token');
-const token = 'cd196b8e6991fc2e624db955b8588b57e92bfdb4';
-
-const profileId =localStorage.getItem('profile_id');
-
+const token = localStorage.getItem('token');
+const profileId = localStorage.getItem('profile_id');
 
 export const getprofiles = () => async(dispatch) =>{
     
-    await axios.get(`http://127.0.0.1:8000/api/accounts/profiles/`, {
+    await axios.get(`https://netflix-iti-project.herokuapp.com/api/accounts/profiles/`, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
@@ -36,7 +33,7 @@ export const getprofiles = () => async(dispatch) =>{
 
 export const getprofile = (id) => async(dispatch) =>{
     
-    await axios.get(`http://127.0.0.1:8000/api/accounts/profile/${id || profileId}`, {
+    await axios.get(`https://netflix-iti-project.herokuapp.com/api/accounts/profile/${id || profileId}`, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
@@ -56,7 +53,7 @@ export const getprofile = (id) => async(dispatch) =>{
 
 export const addprofile = (request) => async(dispatch) =>{
     console.log(request);
-    await axios.post(`http://127.0.0.1:8000/api/accounts/create_profile`,request, {
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/create_profile`,request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
@@ -90,7 +87,7 @@ export const addprofile = (request) => async(dispatch) =>{
 
 export const updateprofile = (request) => async(dispatch) =>{
     console.log(request);
-    await axios.put(`http://127.0.0.1:8000/api/accounts/update_delete_profile/${request.id || profileId}`,request, {
+    await axios.put(`https://netflix-iti-project.herokuapp.com/api/accounts/update_delete_profile/${request.id || profileId}`,request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}
@@ -123,7 +120,7 @@ export const updateprofile = (request) => async(dispatch) =>{
 
 export const deleteprofile = (request) => async(dispatch) =>{
     console.log(request)
-    await axios.delete(`http://127.0.0.1:8000/api/accounts/update_delete_profile/${request}`, {
+    await axios.delete(`https://netflix-iti-project.herokuapp.com/api/accounts/update_delete_profile/${request}`, {
         headers: {
           'Authorization': `Token ${token}` 
         }}

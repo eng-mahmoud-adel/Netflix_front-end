@@ -6,7 +6,7 @@ export const CHOOSE_PLAN = 'CHOOSEPLAN';
 const token = localStorage.getItem('token');
 
 export const payment = (request) => async(dispatch) =>{
-    await axios.post(`http://127.0.0.1:8000/api/accounts/payment/create`, request, {
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/payment/create`, request, {
         headers: {
           'Authorization': `Token ${token}` 
         }}

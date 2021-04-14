@@ -9,7 +9,7 @@ export const RESET_PASSWORD_CONFIRM = 'RESET_PASSWORD_CONFIRM';
 export const BAD_REQUEST_400 = 'BAD_REQUEST_400';
 
 export const login = (request) => async (dispatch) => {
-    await axios.post(`http://127.0.0.1:8000/api/accounts/auth/login/`, request)
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/auth/login/`, request)
         .then(
             (response) => {
                 localStorage.setItem('token', response.data.key);
@@ -33,7 +33,7 @@ export const login = (request) => async (dispatch) => {
 };
 
 export const registerUser = (request) => async (dispatch) => {
-    await axios.post(`http://127.0.0.1:8000/api/accounts/auth/register/`, request)
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/auth/register/`, request)
         .then(
             (response) => {
                 localStorage.setItem('token', response.data.key);
@@ -70,7 +70,7 @@ export const changeEmail = (email) => (dispatch) => {
 };
 
 export const forgotPassword = (email) => async (dispatch) => {
-    await axios.post(`http://localhost:8000/api/accounts/auth/password/reset/`, email)
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/auth/password/reset/`, email)
     .then(
         (response) => {
             dispatch({
@@ -81,7 +81,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 }
 
 export const resetPasswordConfirm = (request) => async (dispatch) => {
-    await axios.post(`http://localhost:8000/api/accounts/auth/password/reset/confirm/`, request)
+    await axios.post(`https://netflix-iti-project.herokuapp.com/api/accounts/auth/password/reset/confirm/`, request)
     .then(
         (response) => {
             dispatch({

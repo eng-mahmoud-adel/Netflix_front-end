@@ -14,7 +14,7 @@ export default class Player extends Component {
     async componentDidMount() {
         try {
             console.log(this.state.videoId)
-            const res = await fetch(`http://localhost:8000/api/movies/${this.state.videoId}`,{
+            const res = await fetch(`https://netflix-iti-project.herokuapp.com/api/movies/${this.state.videoId}`,{
                 headers: {
                   Authorization: `Token ${localStorage.getItem('token')}`, 
                 }});

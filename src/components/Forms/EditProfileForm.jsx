@@ -22,7 +22,7 @@ function EditProfileForm({profile, getprofile, updateprofile, id, error}){
         getprofile(id);
     }, [getprofile, updateprofile])
 
-    const imageUrl = profile.image?'http://localhost:8000'+profile.image : defaultPic;
+    const imageUrl = profile.image?'https://netflix-iti-project.herokuapp.com'+profile.image : defaultPic;
 
     const onNameChange = (e) => {
         if (e.target.value) {

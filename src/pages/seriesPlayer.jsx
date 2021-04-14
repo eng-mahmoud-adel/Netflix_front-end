@@ -13,7 +13,7 @@ export default class seriesPlayer extends Component {
     }
     async componentDidMount() {
         try {
-            const res = await fetch(`http://localhost:8000/api/episodes/${this.state.videoId}`,{
+            const res = await fetch(`https://netflix-iti-project.herokuapp.com/api/episodes/${this.state.videoId}`,{
                 headers: {
                   Authorization: `Token ${localStorage.getItem('token')}`, 
                 }});
