@@ -1,5 +1,5 @@
 import { act } from 'react-dom/test-utils';
-import {LOGIN, SIGNUP, LOGOUT, EMAIL_CHANGED, BAD_REQUEST_400} from '../actions/auth'
+import {LOGIN, SIGNUP, LOGOUT, EMAIL_CHANGED, FORGOT_PASSWORD, RESET_PASSWORD_CONFIRM, BAD_REQUEST_400} from '../actions/auth'
 // import User from "../../model/User";
 
 const initialState = {
@@ -12,7 +12,9 @@ const initialState = {
         msg: '',
         created: false
     },
-    error: 1
+    error: 1,
+    forgotPasswordMsg: '',
+    forgotPasswordError: 1,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -52,6 +54,13 @@ const authReducer = (state = initialState, action) => {
                     ...state.user,
                     email: action.payload
                 }
+            };
+
+        case FORGOT_PASSWORD:
+            return {
+                ...state,
+                forgotPasswordMsg: action.payload.detail,
+                forgotPasswordError: null
             };
 
         case BAD_REQUEST_400:

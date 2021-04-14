@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import ResetPassword from './pages/ResetPassword/ResetPassword';
 import Registration from './pages/Signup/Registration/Registration';
 import RegistrationForm from './pages/Signup/RegistrationForm/RegistrationForm';
 import Signup from './pages/Signup/Signup/Signup';
@@ -16,16 +17,16 @@ import Shows from './pages/Shows'
 import Player from './pages/DisplayVideo'
 import Notfound from './components/NotFoundPage/404'
 import Search from './pages/Search'
-
-
 import Series from './pages/SeriesPage'
 import seriesPlayer from './pages/seriesPlayer'
+
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/reset_password" component={ResetPassword}></Route>
         <Route path="/registration" component={Registration}></Route>
         <Route path="/regform" component={RegistrationForm}></Route>
         <Route path="/signup" component={Signup}></Route>

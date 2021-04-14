@@ -43,7 +43,7 @@ function LoginForm({login}) {
           <Form onSubmit={handleSubmit}>
             <h1 className="text-white mb-4"><b>Sign In</b></h1>
               <Form.Group controlId="formGroupEmail">
-                  <Input type="email" name="email" value={email} onChange={onChangeEmail} required="required" placeholder="Email or Phone Number" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
+                  <Input type="email" name="email" value={email} onChange={onChangeEmail} required="required" placeholder="Email" style={{height:'50px', backgroundColor: '#333', border: '1px solid #333', color: 'white'}} />
               </Form.Group>
 
               <Form.Group controlId="formGroupPassword">
@@ -57,7 +57,7 @@ function LoginForm({login}) {
                   <Form.Check type="checkbox" label="Remember me" style={{color: '#b3b3b3'}} />
                   
                 </Form.Group>
-                <NavLink to="#" className="ml-auto" style={{color: '#b3b3b3'}}>Need help?</NavLink>
+                <NavLink to="/reset_password" className="ml-auto" style={{color: '#b3b3b3'}}>Forgot Password?</NavLink>
               </Row>
 
               <div>

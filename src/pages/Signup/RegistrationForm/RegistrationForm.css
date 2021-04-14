@@ -13,3 +13,24 @@
 .regform .settings button {
     font-size: 24px;
 }
+
+/* for Medium devices */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .regform footer {
+        margin-top: 75px;
+    }
+}
+
+/* for Large devices */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .regform footer {
+        margin-top: 440px;
+    }
+}
+
+/* for X-Large devices */
+@media (min-width: 1200px) {
+    .regform footer {
+        margin-top: 150px;
+    }
+}

@@ -19,3 +19,17 @@
 .signup .settings button {
     font-size: 24px;
 }
+
+/* for Medium devices */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .signup footer {
+        margin-top: 121px;
+    }
+}
+
+/* for Large devices */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .signup footer {
+        margin-top: 487px;
+    }
+}
