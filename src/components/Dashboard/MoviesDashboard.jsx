@@ -8,7 +8,9 @@ function MoviesDashboard(){
        <div style={{background:"black",paddingBottom:"5%"}}>
         <div className="Home">
             
-        <Row title="Movies" fetchUrl={requests.fetchMovies} isLargeRow /> 
+        <Row title="Drama" fetchUrl={requests.fetchDramaMovies} isLargeRow /> 
+        <Row title="Comedy" fetchUrl={requests.fetchComedyMovies} isLargeRow /> 
+        <Row title="Action" fetchUrl={requests.fetchActionMovies} isLargeRow /> 
 
         </div>
        </div>

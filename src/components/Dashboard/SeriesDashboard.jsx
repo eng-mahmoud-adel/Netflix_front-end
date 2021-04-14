@@ -8,7 +8,9 @@ function SeriesDashboard(){
        <div style={{background:"black",paddingBottom:"5%"}}>
         <div className="Home">
             
-        <Row title="Series" fetchUrl={requests.fetchSeries} isLargeRow />
+        <Row title="Drama" fetchUrl={requests.fetchDramaSeries} isLargeRow />
+        <Row title="Comedy" fetchUrl={requests.fetchComedySeries} isLargeRow />
+        <Row title="Action" fetchUrl={requests.fetchActionSeries} isLargeRow />
 
         </div>
        </div>
