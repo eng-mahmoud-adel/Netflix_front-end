@@ -5,6 +5,8 @@ import { makeStyles} from "@material-ui/core/styles";
 import screenful from "screenfull";
 import Controls from "../VideoControl/VideoControl";
 import axios from '../Row/axios'
+import './VideoPlayer.css'
+
 
 const useStyles = makeStyles((theme) => ({
   playerWrapper: {
@@ -242,9 +244,10 @@ function VideoPlayer({api}) {
 
   return (
     <>
-
-      <Container maxWidth="md" className="mx-6 xs-12">
+    <div className='vid-container'>
+      <Container maxWidth="md" className="mx-6 xs-12 vidcont">
         <div
+          style={{backgroundColor:'black'}}
           onMouseMove={handleMouseMove}
           onMouseLeave={hanldeMouseLeave}
           ref={playerContainerRef}
@@ -298,6 +301,7 @@ function VideoPlayer({api}) {
           />
         </div>
       </Container>
+      </div>
     </>
   );
 }
