@@ -40,7 +40,6 @@ const Series = () => {
     setFilteredEpisodes(newEpisodes);
   };
   return (
-    <div className="series-container">
       <div className="series-info">
         <p className="title"> {series && series.name} </p>
         <p className="description">{series && series.description}</p>
@@ -65,7 +64,7 @@ const Series = () => {
               >
                 <Card.Body>
                   <Link to={`/show/player/${series.id}`}>
-                    <Card.Img variant="top" src={elem.img} className="img" />
+                    <Card.Img  src={elem.img} className="img" />
                   </Link>
                   <Card.Title>{elem.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">
@@ -76,7 +75,6 @@ const Series = () => {
             ))}
         </div>
       </div>
-    </div>
   );
 };
 
