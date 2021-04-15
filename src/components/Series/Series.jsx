@@ -50,7 +50,7 @@ const Series = () => {
           {Array(series.seasons)
             .fill(0)
             .map((elem, index) => (
-              <Dropdown.Item onClick={() => handleFilter(index + 1)}>
+              <Dropdown.Item key={index} onClick={() => handleFilter(index + 1)}>
                 {" "}
                 Season {index + 1}{" "}
               </Dropdown.Item>
@@ -58,9 +58,9 @@ const Series = () => {
         </DropdownButton>
         <div className="allCard">
           {filteredEpisodes &&
-            filteredEpisodes.map((elem) => (
+            filteredEpisodes.map((elem, index) => (
               <Card
-                style={{ width: "26rem", background: "black", display: "flex" }}
+                key={index} style={{ width: "26rem", background: "black", display: "flex" }}
               >
                 <Card.Body>
                   <Link to={`/show/player/${series.id}`}>
