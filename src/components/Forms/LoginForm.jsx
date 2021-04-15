@@ -69,7 +69,6 @@ function LoginForm({login}) {
                     cookiePolicy={'single_host_origin'}
                     // isSignedIn={true}
                     responseType="code"
-                    responseType="token"
                     accessType="offline"
                   />
                 </div>

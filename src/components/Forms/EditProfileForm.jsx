@@ -15,12 +15,11 @@ function EditProfileForm({profile, getprofile, updateprofile, id, error}){
     const [isKid, setIsKid] = useState(false);
     const [imgSrc, setImgSrc] = useState(profile.image);
     const [image,setImage] = useState();
-    const [user,setUser] = useState();
     let history = useHistory();
 
     useEffect(()=>{
         getprofile(id);
-    }, [getprofile, updateprofile])
+    }, [getprofile, updateprofile, id])
 
     const imageUrl = profile.image?'https://netflix-iti-project.herokuapp.com'+profile.image : defaultPic;
 

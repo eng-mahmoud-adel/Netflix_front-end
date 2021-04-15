@@ -1,4 +1,3 @@
-
 const requests={
     fetchMovies:`/api/movies/`,
     fetchSeries:`/api/series/`,

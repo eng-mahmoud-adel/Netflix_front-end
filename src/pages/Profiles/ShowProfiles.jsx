@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
 import ShowProfilesForm from '../../components/Forms/ShowProfilesForm';
 import { connect } from "react-redux";
 import { getprofiles, getprofile, deleteprofile } from '../../store/actions/profiles';

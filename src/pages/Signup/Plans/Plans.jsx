@@ -39,13 +39,11 @@ function Plans({chooseplan, Plan}) {
                     plan_type: plan[choosedPlan],
                     price: 120
                 })
-            break;
             case 1:
                 return chooseplan({
                     plan_type: plan[choosedPlan],
                     price: 165
                 })
-            break;
             case 2:
                 return chooseplan({
                     plan_type: plan[choosedPlan],

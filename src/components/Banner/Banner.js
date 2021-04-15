@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
 import "./Banner.css";
-import Navbar from '../Navbar/Navbar'
+
 function Banner() {
   return (
     <>

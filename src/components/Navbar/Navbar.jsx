@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Form, Nav, FormControl ,NavDropdown} from "react-bootstrap";
-import { Route,Link,Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import { logoutUser } from '../../store/actions/auth';
 import { connect } from 'react-redux';
@@ -73,7 +73,7 @@ function Navbarr({history, logoutUser}) {
             </Form>
           </Navbar.Collapse>
           <NavDropdown alignRight  className=' dropdown' title={
-                <img id='nav-thumbnail'src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png'/>
+                <img id='nav-thumbnail'src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/84c20033850498.56ba69ac290ea.png' alt="" />
 
             } id="dropdown-basic">
         <Link to="/showprofiles">
