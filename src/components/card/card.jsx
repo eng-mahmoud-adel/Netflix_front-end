@@ -28,8 +28,8 @@ function UserCard({profiles, getprofiles, getprofile, deleteprofile}){
     }, [getprofiles,handleDelete])
     
     return (
-        profiles.map( (item) => (
-            <Card className="mr-3" style={{ width: '12rem', height:'18rem', backgroundColor: 'rgba(0,0,0,.75)' , margin:'.5rem' }}>
+        profiles.map((item, index) => (
+            <Card className="mr-3" key={index} style={{ width: '12rem', height:'18rem', backgroundColor: 'rgba(0,0,0,.75)' , margin:'.5rem' }}>
                 <Card.Img onClick={handleClick} id={item.id} variant="top" height="150" src={ item.image?'https://netflix-iti-project.herokuapp.com'+item.image : defaultPic} />
                 <Card.Body>
                     <Card.Title className="text-center">{item.name||"user"}</Card.Title>
